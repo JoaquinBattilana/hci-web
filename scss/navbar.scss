@@ -1,4 +1,6 @@
-.navbar{
-    height: $nav-height;
+.navbar {
+    border: 1px solid;
     display: flex;
+    height: $nav-height;
+    margin: 0;
 }
