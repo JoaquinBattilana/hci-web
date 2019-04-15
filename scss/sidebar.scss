@@ -1,18 +1,22 @@
 .sidebar {
-    align-items: stretch;
-    border-right: 1px solid;
+    text-align: center;
+    border-right: 1px solid grey;
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 50px;
     position: fixed;
-    width: $sidebar-width;
+    padding-top: 50px;
     
     .sidebar-item {
-        
+        padding: 10px 0;
 
         &:hover {
             background-color: $grey;
         }
+    }
+
+    .selected {
+        background-color: $grey;
+        border-right: 2px solid red;
     }
 }

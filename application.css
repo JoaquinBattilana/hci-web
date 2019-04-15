@@ -10,15 +10,19 @@
   padding: 0 20px; }
 
 .sidebar {
-  align-items: stretch;
-  border-right: 1px solid;
+  text-align: center;
+  border-right: 1px solid grey;
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-top: 50px;
   position: fixed;
-  width: 150px; }
-  .sidebar .sidebar-item:hover {
-    background-color: grey; }
+  padding-top: 50px; }
+  .sidebar .sidebar-item {
+    padding: 10px 0; }
+    .sidebar .sidebar-item:hover {
+      background-color: ghostwhite; }
+  .sidebar .selected {
+    background-color: ghostwhite;
+    border-right: 2px solid red; }
 
 /*# sourceMappingURL=application.css.map */
