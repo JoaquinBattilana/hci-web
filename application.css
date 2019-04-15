@@ -10,7 +10,7 @@
   padding: 0 20px; }
 
 .sidebar {
-  align-items: center;
+  align-items: stretch;
   border-right: 1px solid;
   display: flex;
   flex-direction: column;
@@ -18,8 +18,7 @@
   padding-top: 50px;
   position: fixed;
   width: 150px; }
-  .sidebar .selected {
-    align-self: stretch;
+  .sidebar .sidebar-item:hover {
     background-color: grey; }
 
 /*# sourceMappingURL=application.css.map */
