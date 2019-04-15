@@ -1,0 +1,25 @@
+* {
+  margin: 0; }
+
+.navbar {
+  align-items: center;
+  border: 1px solid;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  padding: 0 20px; }
+
+.sidebar {
+  align-items: center;
+  border-right: 1px solid;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 50px;
+  position: fixed;
+  width: 150px; }
+  .sidebar .selected {
+    align-self: stretch;
+    background-color: grey; }
+
+/*# sourceMappingURL=application.css.map */

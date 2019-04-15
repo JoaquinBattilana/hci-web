@@ -1,3 +1,15 @@
-.sidebar{
+.sidebar {
+    align-items: center;
+    border-right: 1px solid;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 50px;
+    position: fixed;
+    width: $sidebar-width;
     
+    .selected {
+        align-self: stretch;
+        background-color: $grey;
+    }
 }
