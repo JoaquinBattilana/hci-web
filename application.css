@@ -1,5 +1,12 @@
+@font-face
+{
+  font-family: 'Ubuntu';
+  src: url('font/Ubuntu-Titling/UbuntuTitling-Bold.ttf');
+}
+
 * {
-  margin: 0; }
+  margin: 0; 
+  font-family: Ubuntu, Arial, sans-serif;}
 
 .navbar {
   align-items: center;
