@@ -1,12 +1,20 @@
 .dispositive {
     border: 1px solid black;
     display: flex;
+    padding-left: 1%;
 
-    .button {
-        align-self: flex-end;
+    .name {
+        margin-right: 50%;
     }
+
+    .icon {
+        margin-right: 1%;
+    }
+    .button {
+        margin-right: 10%;
+    }
+
     .config-button {
-        align-self: flex-end;
-        color:red;
+        
     }
 }
