@@ -1,5 +1,8 @@
 import React from 'react';
+import Home from './screens/Home';
 
-const App = () => <h1> Hola mundo </h1>;
+function App() {
+    return <Home />;
+}
 
 export default App;
