@@ -3,9 +3,14 @@ import styles from './styles.module.scss';
 
 class Dispositive extends Component {
     render() {
-        <div className={}>
-
-        </div>
+        return(
+            <div className={styles.dispositive}>
+                <div className> ICONO </div>
+                <div>Nombre dispositivo</div>
+                <div className={styles.button}> Boton prender apagar </div>
+                <div className={styles.configButton}> Configuracion </div>
+            </div>
+        );
     }
 }
 
