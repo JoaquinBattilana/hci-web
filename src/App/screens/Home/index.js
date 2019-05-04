@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styles from './styles.module.scss';
+import TopBar from './components/TopBar';
+import SideBar from './components/SideBar';
 
 function Home() {
-    return <h1 className={styles.test}>Home screen</h1>;
+    return (
+        <Fragment>
+            <TopBar />
+            <SideBar />
+        </Fragment>
+    );
 }
 
 export default Home;
