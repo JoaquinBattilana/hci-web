@@ -8,10 +8,10 @@ function Main() {
     return (
         <Fragment>
             <TopBar />
-            <div className={styles.container}>
-                <SideBar />
+            <SideBar />
+            <main className={styles.container}>
                 <Dispositives />
-            </div>
+            </main>
         </Fragment>
     );
 }
