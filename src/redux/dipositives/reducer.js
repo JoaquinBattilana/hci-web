@@ -3,7 +3,7 @@ import { actions } from './actions';
 const initialState = {
     dispositivesType: [],
     dispositives: [],
-    currentDispositive: {},
+    currentDispositive: null,
     isLoading: false,
     hasError: false
 };

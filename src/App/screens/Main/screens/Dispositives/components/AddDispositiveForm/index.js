@@ -6,7 +6,6 @@ import dispositiveActions from '../../../../../../../redux/dipositives/actions';
 class AddDispositiveFormContainer extends Component {
     handleSubmit = data => {
         const { postDispositive, dispositivesType } = this.props;
-        debugger;
         const readyData = { 
             typeId: dispositivesType.find(elem => elem.name === data.type).id,
             name: data.name,

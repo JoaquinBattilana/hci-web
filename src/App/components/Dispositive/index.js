@@ -6,7 +6,6 @@ import dispositiveActions from '../../../redux/dipositives/actions';
 
 class Dispositive extends Component {
     onConfigClickHandler = () => {
-        debugger;
         const { dispositive, onConfigClick } = this.props
         onConfigClick(dispositive);
     }

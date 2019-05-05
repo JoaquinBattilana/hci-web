@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 import AddDispositiveFormContainer from './components/AddDispositiveForm';
+import ConfigureDispositiveFormContainer from './components/ConfigureDispositiveForm';
 
 class Dispositives extends Component {
 
@@ -16,22 +17,24 @@ class Dispositives extends Component {
     }
 
     render(){
-        const { dispositives } = this.props;
+        const { dispositives, currentDispositive } = this.props;
         return(
             <div className={styles.dispositivesContainer}>
                 {dispositives.map( elem => <Dispositive name={elem.name} dispositive={elem} />)}
                 <AddButton />
                 <AddDispositiveFormContainer/>
+                {currentDispositive && <ConfigureDispositiveFormContainer />}
             </div>
         );
     }
 }
 
-const mapStateToProps = ({ dispositives: { dispositivesType, dispositives, isLoading, hasError}}) => ({
+const mapStateToProps = ({ dispositives: { currentDispositive, dispositivesType, dispositives, isLoading, hasError}}) => ({
     dispositivesType,
     dispositives,
     hasError,
-    isLoading
+    isLoading,
+    currentDispositive
 });
 
 const mapDispatchToProps = dispatch => ({

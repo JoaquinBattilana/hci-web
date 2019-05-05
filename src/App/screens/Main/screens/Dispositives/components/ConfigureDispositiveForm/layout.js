@@ -5,7 +5,9 @@ import CustomInput from '../CustomInput';
 function ConfigureDispositiveForm( {handleSubmit} ) {
     return(
         <form onSubmit={handleSubmit}>
+            <h2>Configure Dispositive</h2>
             <Field
+            name="name"
             label="name"
             type="text"
             component={CustomInput}
