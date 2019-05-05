@@ -9,6 +9,11 @@ class Dispositive extends Component {
         const { dispositive, onConfigClick } = this.props
         onConfigClick(dispositive);
     }
+    
+    onDeleteClickHandler = () => {
+        const { dispositive, onDeleteClick } = this.props
+        onDeleteClick( dispositive.id );
+    }
 
     render() {
         const { dispositive } = this.props; 
@@ -18,13 +23,15 @@ class Dispositive extends Component {
                 <div className={styles.name}>{dispositive.name}</div>
                 <Button label="Prender/Apagar"/>
                 <Button handleClick={this.onConfigClickHandler}label="Configuracion"/>
+                <Button handleClick={this.onDeleteClickHandler}label="BORRAR"/>
             </div>
         );
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    onConfigClick: dispositive => dispatch(dispositiveActions.setCurrentDispositive(dispositive))
+    onConfigClick: dispositive => dispatch(dispositiveActions.setCurrentDispositive(dispositive)),
+    onDeleteClick: id => dispatch(dispositiveActions.deleteDispositive(id))
 });
 
 export default connect(null, mapDispatchToProps)(Dispositive);

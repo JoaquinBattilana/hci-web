@@ -68,6 +68,23 @@ function reducer(state=initialState, action) {
                 isLoading: false,
                 hasError: true
             });
+        case actions.DELETE_DISPOSITIVE:
+            return({
+                ...state,
+                isLoading: true
+            });
+        case actions.DELETE_DISPOSITIVE_SUCESS:
+            return({
+                ...state,
+                isLoading: false,
+                hasError: false
+            });
+        case actions.DELETE_DISPOSITIVE_FAIL:
+            return({
+                ...state,
+                isLoading: false,
+                hasError: true
+            });
         default:
             return state;            
     }

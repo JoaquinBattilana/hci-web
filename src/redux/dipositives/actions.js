@@ -12,7 +12,10 @@ export const actions = {
     GET_DISPOSITIVE_TYPES_FAIL: "DISPOSITIVES/GET_DISPOSITIVES_TYPE_FAIL",
     PUT_DISPOSITIVE: "@@DISPOSITIVES/PUT_DISPOSITIVE",
     PUT_DISPOSITIVE_SUCESS: "@@DISPOSITIVES/PUT_DISPOSITIVE_SUCESS",
-    PUT_DISPOSITIVE_FAIL: "@@DISPOSITIVES/PUT_DISPOSITIVE_FAIL"
+    PUT_DISPOSITIVE_FAIL: "@@DISPOSITIVES/PUT_DISPOSITIVE_FAIL",
+    DELETE_DISPOSITIVE: "@@DISPOSITIVE/DELETE_DISPOSITIVE",
+    DELETE_DISPOSITIVE_SUCESS: "@@DISPOSITIVE/DELETE_DISPOSITIVE_SUCESS",
+    DELETE_DISPOSITIVE_FAIL: "@@DISPOSITIVE/DELETE_DISPOSITIVE_FAIL"
 };
 
 const actionCreators = {
@@ -67,6 +70,15 @@ const actionCreators = {
             dispatch({ type: actions.PUT_DISPOSITIVE_SUCESS });
         } else {
             dispatch({ type: actions.PUT_DISPOSITIVE_FAIL})
+        }
+    },
+    deleteDispositive: deviceId => async dispatch => {
+        dispatch({ type: actions.DELETE_DISPOSITIVE});
+        const response = await dispositives.deleteDevice(deviceId);
+        if(response.ok) {
+            dispatch({ type:actions.DELETE_DISPOSITIVE_SUCESS});
+        } else {
+            dispatch({ type: actions.DELETE_DISPOSITIVE_FAIL });
         }
     }
 }
