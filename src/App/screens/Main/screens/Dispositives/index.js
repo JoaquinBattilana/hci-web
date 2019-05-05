@@ -19,7 +19,7 @@ class Dispositives extends Component {
         const { dispositives } = this.props;
         return(
             <div className={styles.dispositivesContainer}>
-                {dispositives.map( elem => <Dispositive name={elem.name} />)}
+                {dispositives.map( elem => <Dispositive name={elem.name} dispositive={elem} />)}
                 <AddButton />
                 <AddDispositiveFormContainer/>
             </div>

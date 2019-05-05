@@ -3,12 +3,18 @@ import { actions } from './actions';
 const initialState = {
     dispositivesType: [],
     dispositives: [],
+    currentDispositive: {},
     isLoading: false,
     hasError: false
 };
 
 function reducer(state=initialState, action) {
     switch(action.type) {
+        case actions.SET_CURRENT_DISPOSITIVE:
+            return({
+                ...state,
+                currentDispositive: action.payload
+            });
         case actions.GET_DISPOSITIVES_TYPES:
             return({
                 ...state,

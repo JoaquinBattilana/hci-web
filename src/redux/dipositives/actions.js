@@ -1,6 +1,7 @@
 import dispositives from '../../services/DevicesService';
 
 export const actions = {
+    SET_CURRENT_DISPOSITIVE: "@@DISPOSITIVES/SET_CURRENT_DISPOSTIVE",
     GET_DISPOSITIVES: "@@DISPOSITIVES/GET_DISPOSITIVES",
     GET_DISPOSITIVES_SUCESS: "@DISPOSITIVES/GET_DISPOSITIVES_SUCESS",
     POST_DISPOSITIVE: "@@DISPOSITIVES/POST_DISPOSITIVES",
@@ -15,6 +16,12 @@ export const actions = {
 };
 
 const actionCreators = {
+    setCurrentDispositive: dispositive => {
+        return({
+            type: actions.SET_CURRENT_DISPOSITIVE,
+            payload: dispositive
+        })
+    },
     getDispositivesTypes: () => async dispatch => {
         dispatch({ type: actions.GET_DISPOSITIVES_TYPES});
         const response = await dispositives.getDevicesTypes();
