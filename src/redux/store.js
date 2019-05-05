@@ -1,6 +1,6 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux'
 import { reducer as form} from 'redux-form';
-import dispositives from './dipositives';
+import dispositives from './dipositives/reducer';
 
 import thunk from 'redux-thunk';
 

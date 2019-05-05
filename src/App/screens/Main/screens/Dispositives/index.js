@@ -1,33 +1,24 @@
 import React, { Component } from 'react';
 import AddButton from './components/AddButton';
 import Dispositive from '../../../../components/Dispositive';
-import devices from '../../../../../services/DevicesService';
+import dispositiveActions from '../../../../../redux/dipositives/actions';
+import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 import AddDispositiveFormContainer from './components/AddDispositiveForm';
 
 class Dispositives extends Component {
-    state = {
-        dispositives: []
-    }
-
-    setDispositives = async () => {
-        const response = await devices.getDevices();
-        if(response.ok){
-            this.setState({
-                dispositives: response.data.devices
-            });
-        }
-    }
 
     componentDidMount = () => {
-        this.setDispositives();
+        const { getDispositives } = this.props;
+        getDispositives();
     }
 
     render(){
+        const { dispositives } = this.props;
         return(
-            <div className={styles.dispositives}>
-                {this.state.dispositives.map( elem => <Dispositive name={elem.name} />)}
+            <div className={styles.dispositivesContainer}>
+                {dispositives.map( elem => <Dispositive name={elem.name} />)}
                 <AddButton />
                 <AddDispositiveFormContainer/>
             </div>
@@ -35,4 +26,15 @@ class Dispositives extends Component {
     }
 }
 
-export default Dispositives;
+const mapStateToProps = ({ dispositives: { dispositives, isLoading, hasError}}) => ({
+    dispositives,
+    hasError,
+    isLoading
+});
+
+const mapDispatchToProps = dispatch => ({
+    getDispositives: () => dispatch(dispositiveActions.getDispositives()),
+    postDispositives: data => dispatch(dispositiveActions.postDispositive(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dispositives);

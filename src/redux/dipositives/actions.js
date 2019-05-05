@@ -9,19 +9,19 @@ export const actions = {
 };
 
 const actionCreators = {
-    get: () => async dispatch => {
+    getDispositives: () => async dispatch => {
         dispatch({ type: actions.GET_DISPOSITIVES });
         const response = await dispositives.getDevices();
         if (response.ok) {
             dispatch({
                 type: actions.GET_DISPOSITIVES_SUCESS,
-                payload: response.data
+                payload: response.data.devices
             });
         } else {
             dispatch({ type: actions.POST_DISPOSITIVE_FAIL});
         }
     },
-    post: data => async dispatch => {
+    postDispositive: data => async dispatch => {
         dispatch({ type: actions.POST_DISPOSITIVE });
         const response = await dispositives.postDevices(data);
         if (response.ok) {
