@@ -1,6 +1,7 @@
 import { actions } from './actions';
 
 const initialState = {
+    dispositivesType: [],
     dispositives: [],
     isLoading: false,
     hasError: false
@@ -8,6 +9,24 @@ const initialState = {
 
 function reducer(state=initialState, action) {
     switch(action.type) {
+        case actions.GET_DISPOSITIVES_TYPES:
+            return({
+                ...state,
+                isLoading: true
+            });
+        case actions.GET_DISPOSITIVES_TYPES_SUCESS:
+            return({
+                ...state,
+                isLoading: false,
+                hasError: false,
+                dispositivesType: actions.payload
+            });
+        case actions.GET_DISPOSITIVE_TYPES_FAIL:
+            return({
+                ...state,
+                isLoading: false,
+                hasError: true
+            });
         case actions.GET_DISPOSITIVES:
             return({
                 ...state,
