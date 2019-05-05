@@ -27,7 +27,7 @@ class Dispositives extends Component {
     render(){
         return(
             <div className={styles.dispositives}>
-                <Dispositive />
+                {this.state.dispositives.map( elem => <Dispositive name={elem.name} />)}
                 <AddButton />
             </div>
         );
