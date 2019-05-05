@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
+import Button from '../Button';
 
 class Dispositive extends Component {
     render() {
@@ -8,8 +9,8 @@ class Dispositive extends Component {
             <div className={styles.dispositive}>
                 <div className={styles.icon}> ICONO </div>
                 <div className={styles.name}>{name}</div>
-                <div className={styles.button}> Boton prender apagar </div>
-                <div className={styles.configButton}> Configuracion </div>
+                <Button label="Prender/Apagar"/>
+                <Button label="Configuracion"/>
             </div>
         );
     }
