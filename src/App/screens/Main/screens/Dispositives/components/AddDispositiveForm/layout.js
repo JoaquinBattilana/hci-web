@@ -13,7 +13,7 @@ function AddDispostiveForm({ handleSubmit, invalid }) {
                 component={CustomInput}
             />
             <button type="submit" disable={invalid}>
-                Agregar
+                Add
             </button>
         </form>
     );
