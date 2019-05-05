@@ -2,7 +2,9 @@ import React, { Fragment } from 'react';
 import styles from './styles.module.scss';
 import TopBar from './components/TopBar';
 import SideBar from './components/SideBar';
+import { Route, Switch } from 'react-router';
 import Dispositives from './screens/Dispositives';
+import NotFound from './screens/NotFound';
 
 function Main() {
     return (
@@ -10,7 +12,10 @@ function Main() {
             <TopBar />
             <SideBar />
             <main className={styles.container}>
-                <Dispositives />
+                <Switch>
+                    <Route path="/dispositives" component={Dispositives} />
+                    <Route component = {NotFound} />
+                </Switch>
             </main>
         </Fragment>
     );
