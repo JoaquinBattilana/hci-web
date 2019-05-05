@@ -1,10 +1,13 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux'
 import { reducer as form} from 'redux-form';
+import dispositives from './dipositives';
+
 import thunk from 'redux-thunk';
 
 const rootReducer = () => 
     combineReducers({
-        form
+        form,
+        dispositives
 });
 
 const enhancers = [applyMiddleware(thunk)];
