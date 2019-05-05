@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import AddDispositiveForm from './layout';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../../../../../redux/dipositives/actions';
-import { id } from '../../../../../../../constants/deviceId';
+import DEVICES from '../../../../../../../constants/devices';
 
 class AddDispositiveFormContainer extends Component {
     handleSubmit = data => {
         const { postDispositive } = this.props;
         const readyData = { 
-            typeId: id.lamp,
-            ...data,
+            typeId: data.type,
+            name: data.name,
         }; 
         postDispositive(JSON.stringify(readyData));
     }

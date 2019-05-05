@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../CustomInput';
+import CustomSelect from '../CustomSelect';
 
 function AddDispostiveForm({ handleSubmit, invalid }) {
     return(
@@ -11,6 +12,11 @@ function AddDispostiveForm({ handleSubmit, invalid }) {
                 label="Dispositive name"
                 type="text"
                 component={CustomInput}
+            />
+            <Field
+                name="type"
+                label="Dispositive type"
+                component={CustomSelect} 
             />
             <button type="submit" disable={invalid}>
                 Add
