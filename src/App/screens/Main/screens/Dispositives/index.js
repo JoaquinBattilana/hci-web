@@ -10,7 +10,8 @@ import AddDispositiveFormContainer from './components/AddDispositiveForm';
 class Dispositives extends Component {
 
     componentDidMount = () => {
-        const { getDispositives } = this.props;
+        const { getDispositives, getDispositivesTypes } = this.props;
+        getDispositivesTypes();
         getDispositives();
     }
 
@@ -26,13 +27,15 @@ class Dispositives extends Component {
     }
 }
 
-const mapStateToProps = ({ dispositives: { dispositives, isLoading, hasError}}) => ({
+const mapStateToProps = ({ dispositives: { dispositivesType, dispositives, isLoading, hasError}}) => ({
+    dispositivesType,
     dispositives,
     hasError,
     isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
+    getDispositivesTypes: () => dispatch(dispositiveActions.getDispositivesTypes()),
     getDispositives: () => dispatch(dispositiveActions.getDispositives()),
     postDispositives: data => dispatch(dispositiveActions.postDispositive(data))
 });

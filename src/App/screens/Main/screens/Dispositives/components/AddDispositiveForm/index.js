@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import AddDispositiveForm from './layout';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../../../../../redux/dipositives/actions';
-import DEVICES from '../../../../../../../constants/devices';
 
 class AddDispositiveFormContainer extends Component {
     handleSubmit = data => {
-        const { postDispositive } = this.props;
+        const { postDispositive, dispositivesType } = this.props;
+        debugger;
         const readyData = { 
-            typeId: data.type,
+            typeId: dispositivesType.find(elem => elem.name === data.type).id,
             name: data.name,
         }; 
         postDispositive(JSON.stringify(readyData));
@@ -18,8 +18,12 @@ class AddDispositiveFormContainer extends Component {
     }
 }
 
+const mapStateToProps = ({ dispositives: { dispositivesType } }) => ({
+    dispositivesType
+});
+
 const mapDispatchToProps = dispatch => ({
     postDispositive: data => dispatch(dispositiveActions.postDispositive(data))
 });
 
-export default connect(null, mapDispatchToProps)(AddDispositiveFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AddDispositiveFormContainer);

@@ -19,7 +19,7 @@ function reducer(state=initialState, action) {
                 ...state,
                 isLoading: false,
                 hasError: false,
-                dispositivesType: actions.payload
+                dispositivesType: action.payload
             });
         case actions.GET_DISPOSITIVE_TYPES_FAIL:
             return({

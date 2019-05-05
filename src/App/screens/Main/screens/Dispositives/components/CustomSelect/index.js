@@ -6,7 +6,7 @@ function CustomSelect({ label, input }) {
         <Fragment>
             <label>{label}</label>
             <select {...input} >
-                {DEVICES.map(elem => <option value={elem.id}>{elem.name}</option>)}
+                {DEVICES.map(elem => <option>{elem.name}</option>)}
             </select>
         </Fragment>
     );
