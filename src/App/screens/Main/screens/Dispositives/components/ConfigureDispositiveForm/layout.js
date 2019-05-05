@@ -2,13 +2,16 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../CustomInput';
 
-function ConfigureDispositiveForm() {
+function ConfigureDispositiveForm( {handleSubmit} ) {
     return(
-        <Field
+        <form onSubmit={handleSubmit}>
+            <Field
             label="name"
             type="text"
             component={CustomInput}
-        />
+            />
+            <button type="submit">OK</button>
+        </form>
     );
 }
 
