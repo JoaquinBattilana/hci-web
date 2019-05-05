@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AddButton from './components/AddButton';
 import Dispositive from '../../../../components/Dispositive';
+import devices from '../../../../../services/DevicesService';
+
 import styles from './styles.module.scss';
 
-function Dispositives() {
-    return(
-        <div className={styles.dispositives}>
-            <Dispositive />
-            <AddButton />
-        </div>
-    );
+class Dispositives extends Component {
+    state = {
+        dispositives: []
+    }
+
+    setDispositives = async () => {
+        const response = await devices.getDevices();
+        debugger;
+        if(response.ok){
+            this.setState({
+                dispositives: response.data.devices
+            });
+        }
+    }
+
+    componentDidMount = () => {
+        this.setDispositives();
+    }
+
+    render(){
+        return(
+            <div className={styles.dispositives}>
+                <Dispositive />
+                <AddButton />
+            </div>
+        );
+    }
 }
 
 export default Dispositives;
