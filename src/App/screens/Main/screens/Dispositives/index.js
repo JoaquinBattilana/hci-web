@@ -4,6 +4,7 @@ import Dispositive from '../../../../components/Dispositive';
 import devices from '../../../../../services/DevicesService';
 
 import styles from './styles.module.scss';
+import AddDispositiveFormContainer from './components/AddDispositiveForm';
 
 class Dispositives extends Component {
     state = {
@@ -29,6 +30,7 @@ class Dispositives extends Component {
             <div className={styles.dispositives}>
                 {this.state.dispositives.map( elem => <Dispositive name={elem.name} />)}
                 <AddButton />
+                <AddDispositiveFormContainer/>
             </div>
         );
     }
