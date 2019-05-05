@@ -13,7 +13,6 @@ class Dispositives extends Component {
 
     setDispositives = async () => {
         const response = await devices.getDevices();
-        debugger;
         if(response.ok){
             this.setState({
                 dispositives: response.data.devices
