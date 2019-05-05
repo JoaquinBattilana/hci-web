@@ -1,5 +1,7 @@
-.topbar { 
+.topbar {
+    position: fixed;
     border: 1px solid black;
     display: flex;
     height: 100px;
+    width: 100%;
 }
