@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import AddDispositiveForm from './layout';
 import devices from '../../../../../../../services/DevicesService';
+import { connect } from 'react-redux';
+import dispositiveActions from '../../../../../../../redux/dipositives/actions';
+import { id } from '../../../../../../../constants/deviceId';
 
 class AddDispositiveFormContainer extends Component {
     handleSubmit = data => {
         const readyData = { 
-            typeId: "go46xmbleomjrsjr",
+            typeId: id.lamp,
             ...data,
-            meta: "{}"
         }; 
         devices.postDevices(JSON.stringify(readyData));
     }
@@ -16,4 +18,8 @@ class AddDispositiveFormContainer extends Component {
     }
 }
 
-export default AddDispositiveFormContainer;
+const mapDispatchToProps = dispatch => ({
+    postDispositive: data => dispatch(dispositiveActions.postDispositive(data))
+});
+
+export default connect(null, )(AddDispositiveFormContainer);
