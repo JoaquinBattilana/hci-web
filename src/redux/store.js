@@ -1,6 +1,7 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux'
 import { reducer as form} from 'redux-form';
 import dispositives from './dipositives/reducer';
+import rooms from './rooms/reducer';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 
