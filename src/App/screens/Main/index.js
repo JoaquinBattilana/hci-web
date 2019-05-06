@@ -4,6 +4,8 @@ import TopBar from './components/TopBar';
 import SideBar from './components/SideBar';
 import { Route, Switch } from 'react-router';
 import Dispositives from './screens/Dispositives';
+import Rooms from './screens/Rooms';
+import Routines from './screens/Routines';
 import NotFound from './screens/NotFound';
 
 function Main() {
@@ -14,7 +16,9 @@ function Main() {
             <main className={styles.container}>
                 <Switch>
                     <Route path="/dispositives" component={Dispositives} />
-                    <Route component = {NotFound} />
+                    <Route path="/rooms" component={Rooms} />
+                    <Route path="/routines" component={Routines} />
+                    <Route component={NotFound} />
                 </Switch>
             </main>
         </Fragment>
