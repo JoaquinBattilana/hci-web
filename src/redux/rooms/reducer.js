@@ -12,13 +12,14 @@ function reducer(state=initialState, action) {
         case actions.GET_ROOMS:
             return({
                 ...state,
-                isLoading: true
+                isLoading: true,
             });
         case actions.GET_ROOMS_SUCESS:
             return({
                 ...state,
                 isLoading: false,  
-                hasError: false
+                hasError: false,
+                rooms: action.payload
             });
         case actions.GET_ROOMS_FAIL:
             return({
