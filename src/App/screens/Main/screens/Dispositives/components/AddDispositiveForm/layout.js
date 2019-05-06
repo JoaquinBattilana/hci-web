@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import CustomInput from '../CustomInput';
-import CustomSelect from '../CustomSelect';
+import CustomInput from '../../../../../../components/CustomInput';
+import CustomSelect from '../../../../../../components/CustomSelect';
 
 function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms }) {
     return(

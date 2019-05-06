@@ -46,7 +46,7 @@ const actionsCreator = {
     },
     postRoom: data => async dispatch => {
         dispatch({ type: actions.POST_ROOM });
-        const response = await api.postRoom(data);
+        const response = await rooms.postRoom(data);
         if(response.ok) {
             dispatch({ type: actions.POST_ROOM_SUCESS});
         } else {
