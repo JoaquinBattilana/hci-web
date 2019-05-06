@@ -9,6 +9,11 @@ const initialState = {
 
 function reducer(state=initialState, action) {
     switch(action.type){
+        case actions.SELECT_ROOM:
+            return({
+                ...state,
+                roomSelected: action.payload
+            });
         case actions.GET_ROOMS:
             return({
                 ...state,

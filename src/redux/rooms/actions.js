@@ -1,6 +1,7 @@
 import rooms from '../../services/RoomsService';
 
 export const actions = {
+    SELECT_ROOM: "@@ROOMS/SELECT_ROOM",
     GET_ROOMS: "@@ROOMS/GET_ROOMS",
     GET_ROOMS_SUCESS: "@@ROOMS/GET_ROOMS_SUCESS",
     GET_ROOMS_FAIL: "@@ROOMS/GET_ROOMS_FAIL",
@@ -10,6 +11,12 @@ export const actions = {
 };
 
 const actionsCreator = {
+    selectRoom: room => {
+        return({
+            type: actions.SELECT_ROOM,
+            payload: room
+        });
+    },
     getRooms: () => async dispatch => {
         dispatch({ type: actions.GET_ROOMS});
         const response = await rooms.getRooms();
