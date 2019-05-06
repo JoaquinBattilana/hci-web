@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
 import LampOptions from '../LampOptions';
+import OvenOptions from '../OvenOptions';
 
 function ConfigureDispositiveForm( {handleSubmit} ) {
     return(
@@ -13,7 +14,7 @@ function ConfigureDispositiveForm( {handleSubmit} ) {
                 type="text"
                 component={CustomInput}
             />
-            <LampOptions />
+            <OvenOptions />
             <button type="submit">OK</button>
         </form>
     );
