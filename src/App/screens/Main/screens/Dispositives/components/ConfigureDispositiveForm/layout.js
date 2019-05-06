@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import CustomInput from '../CustomInput';
+import CustomInput from '../../../../../../components/CustomInput';
 
 function ConfigureDispositiveForm( {handleSubmit} ) {
     return(
