@@ -2,6 +2,7 @@ import { actions } from './actions';
 
 const initialState = {
     roomSelected: null,
+    roomSelectedDispositives: [],
     isLoading: false,
     hasError: false,
     rooms: []
@@ -32,18 +33,14 @@ function reducer(state=initialState, action) {
                 isLoading: false,
                 hasError: true
             });
-        case actions.GET_ROOMS_DEVICES:
-            return({
-                ...state,
-                isLoading: true
-            })
-        case actions.GET_ROOMS_DEVICES_SUCESS:
+        case actions.GET_ROOM_DEVICES_SUCESS:
             return({
                 ...state,
                 isLoading: false,
-                hasError: false
+                hasError: false,
+                roomSelectedDispositives: action.payload
             })
-        case actions.GET_ROOMS_DEVICES_FAIL:
+        case actions.GET_ROOM_DEVICES_FAIL:
             return({
                 ...state,
                 isLoading: false,
