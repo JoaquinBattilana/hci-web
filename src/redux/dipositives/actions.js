@@ -1,4 +1,5 @@
 import dispositives from '../../services/DevicesService';
+import api from '../../config/api';
 
 export const actions = {
     SET_CURRENT_DISPOSITIVE: "@@DISPOSITIVES/SET_CURRENT_DISPOSTIVE",
@@ -52,14 +53,20 @@ const actionCreators = {
             dispatch({ type: actions.POST_DISPOSITIVE_FAIL});
         }
     },
-    postDispositive: data => async dispatch => {
+    postDispositive: (data, roomId) => async dispatch => {
         dispatch({ type: actions.POST_DISPOSITIVE });
         const response = await dispositives.postDevices(data);
         if (response.ok) {
-            dispatch({
-                type: actions.POST_DISPOSITIVE_SUCESS,
-                payload: response.data
-            });
+            dispatch({type: actions.POST_DISPOSITIVE_SUCESS});
+            if (roomId !== undefined) {
+                const response2 = await dispositives.postDeviceRoom(response.data.device.id, roomId);
+                if(response2.ok) {
+                    dispatch({type: actions.POST_DISPOSITIVE_ROOM_SUCESS})
+                }
+                else {
+                    dispatch({type: actions.POST_DISPOSITIVE_ROOM_FAIL})
+                }
+            }
         }
         else {
             dispatch({ type: actions.POST_DISPOSITIVE_FAIL });

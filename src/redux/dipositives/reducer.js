@@ -10,6 +10,23 @@ const initialState = {
 
 function reducer(state=initialState, action) {
     switch(action.type) {
+        case actions.POST_DISPOSITIVE_ROOM:
+            return({
+                ...state,
+                isLoading: true
+            });
+        case actions.POST_DISPOSITIVE_ROOM_SUCESS:
+            return({
+                ...state,
+                isLoading: false,
+                hasError: false,
+            });
+        case actions.POST_DISPOSITIVE_ROOM_FAIL:
+            return({
+                ...state,
+                isLoading: false,
+                hasError: true
+            });
         case actions.SET_CURRENT_DISPOSITIVE:
             return({
                 ...state,

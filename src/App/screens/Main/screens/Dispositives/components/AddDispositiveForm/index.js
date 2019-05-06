@@ -9,23 +9,18 @@ class AddDispositiveFormContainer extends Component {
     componentDidMount = () => {
         const { getRooms } = this.props;
         getRooms();
-        debugger;
     }
 
-    handleSubmit = data => {
+    handleSubmit = async data => {
         if(data.type === undefined || data.name === undefined){
             throw new SubmissionError( {type: "Ningun tipo fue especificado", name: "El dispositivo tiene que tener un nombre"});
         } 
-        const { postDispositive, dispositivesType } = this.props;
-        debugger;
+        const { postDispositive, dispositivesType, postDispositiveRoom } = this.props;
         const readyData = { 
             typeId: dispositivesType.find(elem => elem.id === data.type).id,
             name: data.name,
-        }; 
-        postDispositive(JSON.stringify(readyData));
-        if(data.room !== undefined){
-            
-        }
+        };
+        postDispositive(readyData, data.room);
     }
     render() {
         const { dispositivesType, rooms } = this.props;
@@ -39,7 +34,7 @@ const mapStateToProps = ({ dispositives: { dispositivesType }, rooms: { rooms } 
 });
 
 const mapDispatchToProps = dispatch => ({
-    postDispositive: data => dispatch(dispositiveActions.postDispositive(data)),
+    postDispositive: (data, roomId)  => dispatch(dispositiveActions.postDispositive(data, roomId)),
     getRooms: () => dispatch(roomsActions.getRooms())
 });
 
