@@ -9,7 +9,10 @@ export const actions = {
     GET_ROOM_DEVICES_FAIL: "@@ROOMS/GET_ROOM_DEVICES_FAIL",
     POST_ROOMS: "@@ROOMS/POST_ROOMS",
     POST_ROOMS_SUCESS: "@@ROOMS/POST_ROOMS_SUCESS",
-    POST_ROOMS_FAIL: "@@ROOMS/POST_ROOMS_FAIL"
+    POST_ROOMS_FAIL: "@@ROOMS/POST_ROOMS_FAIL",
+    POST_ROOM: "@@ROOMS/POST_ROOM",
+    POST_ROOM_SUCESS: "@@ROOMS/POST_ROOM_SUCESS",
+    POST_ROOM_FAIL: "@@ROOMS/POST_ROOM_FAIL"
 };
 
 const actionsCreator = {
@@ -40,6 +43,15 @@ const actionsCreator = {
             });
         } else
             dispatch({ type: actions.GET_ROOM_FAIL });
+    },
+    postRoom: data => async dispatch => {
+        dispatch({ type: actions.POST_ROOM });
+        const response = await api.postRoom(data);
+        if(response.ok) {
+            dispatch({ type: actions.POST_ROOM_SUCESS});
+        } else {
+            dispatch({ type: actions.POST_ROOM_FAIL });
+        }
     }
 };
 
