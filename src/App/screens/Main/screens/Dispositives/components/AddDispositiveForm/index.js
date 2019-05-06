@@ -24,7 +24,12 @@ class AddDispositiveFormContainer extends Component {
     }
     render() {
         const { dispositivesType, rooms } = this.props;
-        return <AddDispositiveForm onSubmit={this.handleSubmit} dispositives={dispositivesType} rooms={rooms} />;
+        return (
+            <div>
+                <h2>Add Dispositive</h2>
+                <AddDispositiveForm onSubmit={this.handleSubmit} dispositives={dispositivesType} rooms={rooms} />;
+            </div>
+        );
     }
 }
 

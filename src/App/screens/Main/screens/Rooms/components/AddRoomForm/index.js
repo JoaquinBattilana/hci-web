@@ -13,7 +13,12 @@ class AddRoomFormContainer extends Component {
         postRoom(newData);
     }
     render() {
-        return <AddRoomForm onSubmit={this.handleSubmit} />;
+        return (
+            <div>
+                <h2>Add Room</h2>
+                <AddRoomForm onSubmit={this.handleSubmit} />;
+            </div>
+        );
     }
 }
 

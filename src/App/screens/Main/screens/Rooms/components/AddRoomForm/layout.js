@@ -5,7 +5,6 @@ import CustomInput from '../../../../../../components/CustomInput';
 function AddRoomForm({ handleSubmit, invalid }) {
     return(
         <form onSubmit={handleSubmit}>
-            <h2> Add Dispositive </h2>
             <Field 
                 name="name"
                 label="Room name"

@@ -6,7 +6,6 @@ import CustomSelect from '../../../../../../components/CustomSelect';
 function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms }) {
     return(
         <form onSubmit={handleSubmit}>
-            <h2> Add Dispositive </h2>
             <Field 
                 name="name"
                 label="Dispositive name"
