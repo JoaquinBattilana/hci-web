@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import AddDispositiveForm from './layout';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../../../../../redux/dipositives/actions';
+import roomsActions from '../../../../../../../redux/rooms/actions';
 
 class AddDispositiveFormContainer extends Component {
+    componentDidMount = () => {
+        const { getRooms } = this.props;
+        getRooms();
+        debugger;
+    }
+
     handleSubmit = data => {
         const { postDispositive, dispositivesType } = this.props;
         const readyData = { 
@@ -13,16 +20,19 @@ class AddDispositiveFormContainer extends Component {
         postDispositive(JSON.stringify(readyData));
     }
     render() {
-        return <AddDispositiveForm onSubmit={this.handleSubmit} />;
+        const { dispositivesType, rooms } = this.props;
+        return <AddDispositiveForm onSubmit={this.handleSubmit} dispositives={dispositivesType} rooms={rooms} />;
     }
 }
 
-const mapStateToProps = ({ dispositives: { dispositivesType } }) => ({
-    dispositivesType
+const mapStateToProps = ({ dispositives: { dispositivesType }, rooms: { rooms } }) => ({
+    dispositivesType,
+    rooms
 });
 
 const mapDispatchToProps = dispatch => ({
-    postDispositive: data => dispatch(dispositiveActions.postDispositive(data))
+    postDispositive: data => dispatch(dispositiveActions.postDispositive(data)),
+    getRooms: () => dispatch(roomsActions.getRooms())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddDispositiveFormContainer);
