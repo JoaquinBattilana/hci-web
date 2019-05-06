@@ -6,6 +6,7 @@ import OvenOptions from '../OvenOptions';
 import LampOptions from '../LampOptions';
 import AcOptions from '../AcOptions';
 import DoorOptions from '../DoorOptions';
+import RefrigeratorOptions from '../RefrigeratorOptions';
 
 class ConfigureDispositiveFormContainer extends Component {
     getDispositiveOptions = () => {
@@ -20,6 +21,8 @@ class ConfigureDispositiveFormContainer extends Component {
                 return <AcOptions />
             case "door":
                 return <DoorOptions />
+            case "refrigerator":
+                return <RefrigeratorOptions />
             default:
                 return null;
         }
