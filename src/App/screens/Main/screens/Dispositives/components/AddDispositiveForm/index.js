@@ -17,11 +17,15 @@ class AddDispositiveFormContainer extends Component {
             throw new SubmissionError( {type: "Ningun tipo fue especificado", name: "El dispositivo tiene que tener un nombre"});
         } 
         const { postDispositive, dispositivesType } = this.props;
+        debugger;
         const readyData = { 
-            typeId: dispositivesType.find(elem => elem.name === data.type).id,
+            typeId: dispositivesType.find(elem => elem.id === data.type).id,
             name: data.name,
         }; 
         postDispositive(JSON.stringify(readyData));
+        if(data.room !== undefined){
+            
+        }
     }
     render() {
         const { dispositivesType, rooms } = this.props;
