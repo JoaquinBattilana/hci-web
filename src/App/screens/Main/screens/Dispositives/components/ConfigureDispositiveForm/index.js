@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import dispositiveActions from '../../../../../../../redux/dipositives/actions';
 import OvenOptions from '../OvenOptions';
 import LampOptions from '../LampOptions';
+import AcOptions from '../AcOptions';
+import DoorOptions from '../DoorOptions';
 
 class ConfigureDispositiveFormContainer extends Component {
     getDispositiveOptions = () => {
@@ -14,6 +16,10 @@ class ConfigureDispositiveFormContainer extends Component {
                 return <LampOptions />
             case "oven":
                 return <OvenOptions />
+            case "ac": 
+                return <AcOptions />
+            case "door":
+                return <DoorOptions />
             default:
                 return null;
         }
