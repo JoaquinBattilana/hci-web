@@ -10,6 +10,7 @@ const rootReducer = routerHistory =>
     combineReducers({
         form,
         dispositives,
+        rooms,
         router: connectRouter(routerHistory)
 });
 
