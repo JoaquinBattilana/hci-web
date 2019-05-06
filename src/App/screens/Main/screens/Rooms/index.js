@@ -13,7 +13,6 @@ class Rooms extends Component {
 
     render(){
         const { rooms } = this.props;
-        debugger;
         return(
             <div className={styles.roomsContainer}>
                 {rooms.map( elem => <Room room={elem}/>)}
