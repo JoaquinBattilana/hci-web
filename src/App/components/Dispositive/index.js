@@ -16,12 +16,12 @@ class Dispositive extends Component {
     }
 
     render() {
-        const { dispositive } = this.props; 
+        const { dispositive, isToggable } = this.props; 
         return(
             <div className={styles.dispositive}>
                 <div className={styles.icon}> ICONO </div>
                 <div className={styles.name}>{dispositive.name}</div>
-                <Button label="Prender/Apagar"/>
+                {isToggable && <Button label="Prender/Apagar"/>}
                 <Button handleClick={this.onConfigClickHandler}label="Configuracion"/>
                 <Button handleClick={this.onDeleteClickHandler}label="BORRAR"/>
             </div>

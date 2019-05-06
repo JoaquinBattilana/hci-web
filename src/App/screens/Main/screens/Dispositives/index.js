@@ -15,11 +15,20 @@ class Dispositives extends Component {
         getDispositives();
     }
 
+    isToggable = dispositive => {
+        const { dispositivesType } = this.props;
+        debugger;
+        if(dispositivesType.find(elem => dispositive.typeId === elem.id).name === "refrigerator") {
+            return false;
+        }
+        return true;
+    }
+
     render(){
         const { dispositives, currentDispositive } = this.props;
         return(
             <div className={styles.dispositivesContainer}>
-                {dispositives.map( elem => <Dispositive dispositive={elem} />)}
+                {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} />)}
                 <AddDispositiveFormContainer/>
                 {currentDispositive && <ConfigureDispositiveFormContainer />}
             </div>
