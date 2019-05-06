@@ -32,6 +32,23 @@ function reducer(state=initialState, action) {
                 isLoading: false,
                 hasError: true
             });
+        case actions.GET_ROOMS_DEVICES:
+            return({
+                ...state,
+                isLoading: true
+            })
+        case actions.GET_ROOMS_DEVICES_SUCESS:
+            return({
+                ...state,
+                isLoading: false,
+                hasError: false
+            })
+        case actions.GET_ROOMS_DEVICES_FAIL:
+            return({
+                ...state,
+                isLoading: false,
+                hasError: true
+            });
         default:
             return state;
     }

@@ -9,7 +9,7 @@ import AddDispositiveFormContainer from './components/AddDispositiveForm';
 import ConfigureDispositiveFormContainer from './components/ConfigureDispositiveForm';
 
 class Dispositives extends Component {
-
+    
     componentDidMount = () => {
         const { getDispositives, getDispositivesTypes } = this.props;
         getDispositivesTypes();

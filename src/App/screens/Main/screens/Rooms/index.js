@@ -21,8 +21,9 @@ class Rooms extends Component {
     }
 }
 
-const mapStateToProps = ({ rooms: { rooms } }) => ({
-    rooms
+const mapStateToProps = ({ rooms: { rooms, selectedRoom } }) => ({
+    rooms,
+    selectedRoom
 });
 
 const mapDispatchToProps = dispatch => ({
