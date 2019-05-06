@@ -5,6 +5,7 @@ function CustomSelect({ label, input, elements }) {
         <Fragment>
             <label>{label}</label>
             <select {...input} >
+                <option></option>
                 {elements && elements.map(elem => <option value={elem.id}>{elem.name}</option>)}
             </select>
         </Fragment>

@@ -3,6 +3,7 @@ import AddDispositiveForm from './layout';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../../../../../redux/dipositives/actions';
 import roomsActions from '../../../../../../../redux/rooms/actions';
+import { SubmissionError } from 'redux-form';
 
 class AddDispositiveFormContainer extends Component {
     componentDidMount = () => {
@@ -12,6 +13,9 @@ class AddDispositiveFormContainer extends Component {
     }
 
     handleSubmit = data => {
+        if(data.type === undefined || data.name === undefined){
+            throw new SubmissionError( {type: "Ningun tipo fue especificado", name: "El dispositivo tiene que tener un nombre"});
+        } 
         const { postDispositive, dispositivesType } = this.props;
         const readyData = { 
             typeId: dispositivesType.find(elem => elem.name === data.type).id,
