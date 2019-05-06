@@ -21,7 +21,6 @@ class Dispositives extends Component {
         return(
             <div className={styles.dispositivesContainer}>
                 {dispositives.map( elem => <Dispositive dispositive={elem} />)}
-                <AddButton />
                 <AddDispositiveFormContainer/>
                 {currentDispositive && <ConfigureDispositiveFormContainer />}
             </div>
