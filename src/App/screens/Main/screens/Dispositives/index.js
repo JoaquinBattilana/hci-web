@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AddButton from './components/AddButton';
 import Dispositive from '../../../../components/Dispositive';
 import dispositiveActions from '../../../../../redux/dipositives/actions';
 import { connect } from 'react-redux';

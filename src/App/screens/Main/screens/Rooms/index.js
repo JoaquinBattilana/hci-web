@@ -4,6 +4,7 @@ import Room from './components/Room';
 import { connect } from 'react-redux';
 import roomsActions from '../../../../../redux/rooms/actions';
 import Dispositive from '../../../../components/Dispositive';
+import AddRoomForm from './components/AddRoomForm';
 
 class Rooms extends Component {
 
@@ -18,6 +19,7 @@ class Rooms extends Component {
             <div className={styles.roomsContainer}>
                 {rooms.map( elem => <Room room={elem}/>)}
                 {roomSelected && roomSelectedDispositives.map(elem => <Dispositive dispositive={elem}/>)}
+                <AddRoomForm />
             </div>
         );
     }
