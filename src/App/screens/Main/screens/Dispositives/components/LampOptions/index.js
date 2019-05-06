@@ -11,6 +11,12 @@ function LampOptions() {
                 type="text"
                 component={CustomInput}
             />
+            <Field
+                name="color"
+                label="Color"
+                type="text"
+                component={CustomInput}
+            />
         </Fragment>
     );
 }
