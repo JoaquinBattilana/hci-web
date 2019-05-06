@@ -12,6 +12,7 @@ class AddDispositiveFormContainer extends Component {
     }
 
     handleSubmit = async data => {
+        debugger;
         if(data.type === undefined || data.name === undefined){
             throw new SubmissionError( {type: "Ningun tipo fue especificado", name: "El dispositivo tiene que tener un nombre"});
         } 
