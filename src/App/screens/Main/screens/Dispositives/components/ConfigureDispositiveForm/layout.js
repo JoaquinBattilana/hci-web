@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
 
 function ConfigureDispositiveForm( {handleSubmit, options} ) {
-    debugger;
     return(
         <form onSubmit={handleSubmit}>
             <h2>Configure Dispositive</h2>

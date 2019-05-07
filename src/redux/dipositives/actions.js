@@ -19,10 +19,22 @@ export const actions = {
     DELETE_DISPOSITIVE_FAIL: "@@DISPOSITIVE/DELETE_DISPOSITIVE_FAIL",
     POST_DISPOSITIVE_ROOM: "@@DISPOSITIVE/POST_DISPOSITIVE_ROOM",
     POST_DISPOSITIVE_ROOM_SUCESS: "@@DISPOSITIVE/POST_DISPOSITIVE_ROOM_SUCESS",
-    POST_DISPOSITIVE_ROOM_FAIL: "@@DISPOSITIVE/POST_DISPOSITIVE_ROOM_FAIL"
+    POST_DISPOSITIVE_ROOM_FAIL: "@@DISPOSITIVE/POST_DISPOSITIVE_ROOM_FAIL",
+    EXECUTE_DEVICE_ACTION: "@@DISPOSITIVES/EXECUTE_DEVICE_ACTION",
+    EXECUTE_DEVICE_ACTION_SUCESS: "@@DISPOSITIVES/EXECUTE_DEVICE_ACTION_SUCESS",
+    EXECUTE_DEVICE_ACTION_FAIL: "@@DISPOSITIVES/EXECUTE_DEVICE_ACTION_FAIL"
 };
 
 const actionCreators = {
+    executeDeviceAction: (deviceId, action, data) => async dispatch => {
+        dispatch({ type: actions.EXECUTE_DEVICE_ACTION});
+        const response = await dispositives.executeDeviceAction(deviceId, action, data);
+        if(response.ok) {
+            dispatch({ type: actions.EXECUTE_DEVICE_ACTION_SUCESS });
+        } else {
+            dispatch({ type: actions.EXECUTE_DEVICE_ACTION_FAIL});
+        }
+    },
     setCurrentDispositive: dispositive => {
         return({
             type: actions.SET_CURRENT_DISPOSITIVE,

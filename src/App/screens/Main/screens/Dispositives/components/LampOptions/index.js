@@ -6,8 +6,8 @@ function LampOptions() {
     return(
         <Fragment>
             <Field 
-                name="intensity"
-                label="Intensity"
+                name="brightness"
+                label="brightness"
                 type="text"
                 component={CustomInput}
             />

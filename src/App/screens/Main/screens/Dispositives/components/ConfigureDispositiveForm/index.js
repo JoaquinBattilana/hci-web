@@ -28,14 +28,25 @@ class ConfigureDispositiveFormContainer extends Component {
         }
     }
 
+    capitalize = s => {
+        if (typeof s !== 'string') return ''
+        return s.charAt(0).toUpperCase() + s.slice(1)
+      }
+
+    executeFormActions = data => {
+        const { executeDeviceAction, currentDispositive } = this.props;
+        const keys = Object.keys(data);
+        keys.map( elem => executeDeviceAction(currentDispositive.id, 'set'+this.capitalize(elem), [{ [elem]: data[elem] }] ));
+    }
+
     handleSubmit = data => {
         const { currentDispositive, putDevice } = this.props;
         const newData = {
             ...currentDispositive,
             name: data.name
         }
-        debugger;
         putDevice(newData.id, newData);
+        this.executeFormActions(data);
     }
     render() {
         return <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={this.getDispositiveOptions()}/>;
@@ -49,5 +60,6 @@ const mapStateToProps = ({ dispositives: { currentDispositive, dispositivesType 
 
 const mapDispatchToProps = dispatch => ({
     putDevice: (deviceId, data) => dispatch(dispositiveActions.putDispositive(deviceId,data)),
+    executeDeviceAction: (deviceId, action, data) => dispatch(dispositiveActions.executeDeviceAction(deviceId, action, data))
 }); 
 export default connect(mapStateToProps, mapDispatchToProps)(ConfigureDispositiveFormContainer);

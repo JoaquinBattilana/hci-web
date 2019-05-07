@@ -19,19 +19,20 @@ function AcOptions() {
                 component={CustomSelect}
             />
             <Field
-                name="vertical swing"
+                name="verticalSwing"
                 label="Set vertical swing"
                 elements={verticalSwingElements}
                 component={CustomSelect}
+                initialValue={verticalSwingElements[0]}
             />
             <Field
-                name="horizontal swing"
+                name="horizontalSwing"
                 label="Set Horizontal Swing"
                 elements={horizontalSwingElements}
                 component={CustomSelect}
             />
             <Field
-                name="fan speed"
+                name="fanSpeed"
                 label="Set Fan Speed"
                 elements={fanSpeedElements}
                 component={CustomSelect}
@@ -41,7 +42,7 @@ function AcOptions() {
 }
 
 const modeElements = [{id:"cool", name:'cool'}, {id:"heat", name:'heat'}, {id:"fan", name:"fan"}];
-const verticalSwingElements = [{id:"auto", name:'auto'}, {id:22, name:22}, {id:45, name:45}];
+const verticalSwingElements = [{id:"auto", name:'auto'}, {id:22, name: 22}, {id:45, name:45}];
 const horizontalSwingElements = [{id:"auto", name:'auto'}, {id:-90, name:-90}, {id:-45, name:-45}, {id:0, name:0}, {id:45, name:45}, {id:90, name:90}];
 const fanSpeedElements = [{id:"auto", name:'auto'}, {id:-25, name:25}, {id:50, name:50}, {id:75, name:75}, {id:100, name:100} ];
 

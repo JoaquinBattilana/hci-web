@@ -7,7 +7,7 @@ function RefrigeratorOptions() {
     return(
         <Fragment>
             <Field 
-                name="freezer temperature"
+                name="freezerTemperature"
                 label="Set freezer temperature"
                 type="text"
                 component={CustomInput}

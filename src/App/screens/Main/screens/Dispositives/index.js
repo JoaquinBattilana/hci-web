@@ -17,7 +17,6 @@ class Dispositives extends Component {
 
     isToggable = dispositive => {
         const { dispositivesType } = this.props;
-        debugger;
         if(dispositivesType.find(elem => dispositive.typeId === elem.id).name === "refrigerator") {
             return false;
         }
