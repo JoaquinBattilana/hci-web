@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
-import Button from '@material-ui/core/Button';
+import Button from '../../../../../../components/Button';
 import { connect } from 'react-redux';
 import roomsActions from '../../../../../../../redux/rooms/actions';
 
