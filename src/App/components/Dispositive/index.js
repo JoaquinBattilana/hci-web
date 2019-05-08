@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
-import Button from '../Button';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../redux/dipositives/actions';
 import SwitchButton from '../SwitchButton';
+import Button from '@material-ui/core/Button';
 
 class Dispositive extends Component {
     onConfigClickHandler = () => {

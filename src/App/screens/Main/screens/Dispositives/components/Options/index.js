@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Field } from 'redux-form';
-import Button from '../../../../../../components/Button';
 import CustomInput from '../../../../../../components/CustomInput';
 import CustomSelect from '../../../../../../components/CustomSelect';
 import SwitchButton from '../../../../../../components/SwitchButton';
