@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import Button from '../Button';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../redux/dipositives/actions';
+import SwitchButton from '../SwitchButton';
 
 class Dispositive extends Component {
     onConfigClickHandler = () => {
@@ -21,9 +22,9 @@ class Dispositive extends Component {
             <div className={styles.dispositive}>
                 <div className={styles.icon}> ICONO </div>
                 <div className={styles.name}>{dispositive.name}</div>
-                {isToggable && <Button label="Prender/Apagar"/>}
-                <Button handleClick={this.onConfigClickHandler}label="Configuracion"/>
-                <Button handleClick={this.onDeleteClickHandler}label="BORRAR"/>
+                {isToggable && <SwitchButton />}
+                <Button handleClick={this.onConfigClickHandler} label="Configuracion"/>
+                <Button handleClick={this.onDeleteClickHandler} label="BORRAR"/>
             </div>
         );
     }

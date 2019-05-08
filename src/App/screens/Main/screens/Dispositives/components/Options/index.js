@@ -3,6 +3,7 @@ import { Field } from 'redux-form';
 import Button from '../../../../../../components/Button';
 import CustomInput from '../../../../../../components/CustomInput';
 import CustomSelect from '../../../../../../components/CustomSelect';
+import SwitchButton from '../../../../../../components/SwitchButton';
 
 class Options extends Component {
     render() {
@@ -13,7 +14,7 @@ class Options extends Component {
         debugger;
         return actions.map(action =>{
             if(action.params.length===0){
-                return <Button label={action.name} />
+                return <SwitchButton label={action.name} />
             }
             return action.params.map(param => {
                 if( (param.type === "string" ||
