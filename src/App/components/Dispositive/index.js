@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../redux/dipositives/actions';
 import SwitchButton from '../SwitchButton';
-import Button from '@material-ui/core/Button';
+import Button from '../Button';
 
 class Dispositive extends Component {
     onConfigClickHandler = () => {
