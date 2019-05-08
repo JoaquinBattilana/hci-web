@@ -2,30 +2,13 @@ import React, { Component } from 'react';
 import ConfigureDispositiveForm from './layout';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../../../../../redux/dipositives/actions';
-import OvenOptions from '../OvenOptions';
-import LampOptions from '../LampOptions';
-import AcOptions from '../AcOptions';
-import DoorOptions from '../DoorOptions';
-import RefrigeratorOptions from '../RefrigeratorOptions';
+import Options from '../Options';
 
 class ConfigureDispositiveFormContainer extends Component {
-    getDispositiveOptions = () => {
+    getDispositiveActions = () => {
         const { currentDispositive, dispositivesType } = this.props;
-        const dispositiveName = dispositivesType.find(elem => currentDispositive.typeId === elem.id).name;
-        switch(dispositiveName) {
-            case "lamp":
-                return <LampOptions />
-            case "oven":
-                return <OvenOptions />
-            case "ac": 
-                return <AcOptions />
-            case "door":
-                return <DoorOptions />
-            case "refrigerator":
-                return <RefrigeratorOptions />
-            default:
-                return null;
-        }
+        const currentDispositiveType = dispositivesType.find(elem => elem.id === currentDispositive.typeId);
+        return currentDispositiveType.actions;
     }
 
     capitalize = s => {
@@ -49,7 +32,7 @@ class ConfigureDispositiveFormContainer extends Component {
         this.executeFormActions(data);
     }
     render() {
-        return <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={this.getDispositiveOptions()}/>;
+        return <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={Options} actions={this.getDispositiveActions()}/>;
     }
 }
 
