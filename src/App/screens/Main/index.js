@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styles from './styles.module.scss';
 import TopBar from './components/TopBar';
 import SideBar from './components/SideBar';
@@ -11,10 +11,12 @@ import SwitchButton from '../../components/SwitchButton';
 
 function Main() {
     return (
-        <Fragment>
-            <TopBar />
-            <SideBar />
-            <main className={styles.container}>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+        mdl-layout--fixed-header">
+        <TopBar />
+        <SideBar />
+        <main class="mdl-layout__content">
+            <div class="page-content">
                 <Switch>
                     <Route path="/dispositives" component={Dispositives} />
                     <Route path="/rooms" component={Rooms} />
@@ -22,8 +24,9 @@ function Main() {
                     <Route path="/button" component={SwitchButton} />
                     <Route component={NotFound} />
                 </Switch>
-            </main>
-        </Fragment>
+            </div>
+        </main>
+        </div>
     );
 }
 

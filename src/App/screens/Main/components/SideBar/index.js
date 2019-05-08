@@ -5,10 +5,14 @@ import { push } from 'connected-react-router';
 
 function SideBar({ toDispositives, toRooms, toRoutines }) {
     return(
-        <div className={styles.sidebar}>
-            <button onClick={toDispositives}>DISPOSITIVES</button>
-            <button onClick={toRooms}>ROOMS</button>
-            <button onClick={toRoutines}>ROUTINES</button>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Title</span>
+            <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+          </nav>
         </div>
     );
 }
