@@ -2,6 +2,10 @@
     align-items: center;
     border: 1px solid black;
     display: flex;
-    padding-left: 1%;
-    width: 100%;
+    justify-content: flex-start;
+    padding: 0 20px;
+
+    .name {
+        margin-right: auto;
+    }
 }

@@ -7,7 +7,7 @@ class Button extends Component {
     render() {
         const { label, handleClick } = this.props;
         return (
-            <button class="mdl-button mdl-js-button mdl-button--raised" onClick={handleClick}>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onClick={handleClick}>
             {label}
             </button>
         ); 
