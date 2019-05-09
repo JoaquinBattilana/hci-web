@@ -8,6 +8,7 @@ import Rooms from './screens/Rooms';
 import Routines from './screens/Routines';
 import NotFound from './screens/NotFound';
 import SwitchButton from '../../components/SwitchButton';
+import SliderInput from '../../components/SliderInput';
 
 function Main() {
     return (
@@ -22,6 +23,7 @@ function Main() {
                     <Route path="/rooms" component={Rooms} />
                     <Route path="/routines" component={Routines} />
                     <Route path="/button" component={SwitchButton} />
+                    <Route path="/slider" render={ () => <SliderInput min={0} max={100}/>} />
                     <Route component={NotFound} />
                 </Switch>
             </div>

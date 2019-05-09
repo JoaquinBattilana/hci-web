@@ -3,6 +3,7 @@ import { Field } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
 import CustomSelect from '../../../../../../components/CustomSelect';
 import SwitchButton from '../../../../../../components/SwitchButton';
+import SliderInput from '../../../../../../components/SliderInput';
 
 class Options extends Component {
     render() {
@@ -19,13 +20,24 @@ class Options extends Component {
                 if( (param.type === "string" ||
                     param.type === "number") && 
                     !param.supportedValues){
-                        return(
-                            <Field
-                                name={param.name}
-                                label={param.name}
-                                component={CustomInput}
-                            />
-                        );
+                        if(param.minValue!==undefined){
+                            return(
+                                <Field
+                                    name={param.name}
+                                    component={SliderInput}
+                                    min={param.minValue}
+                                    max={param.maxValue}
+                                />
+                            );
+                        } else{
+                            return(
+                                <Field
+                                    name={param.name}
+                                    label={param.name}
+                                    component={CustomInput}
+                                />
+                            );
+                        }
                 } else if(param.supportedValues){
                     const wrappedElements = param.supportedValues.map( elem => {
                         return {

@@ -4,7 +4,7 @@ import dispositiveActions from '../../../../../redux/dipositives/actions';
 import { connect } from 'react-redux';
 import Button from '../../../../components/Button';
 import styles from './styles.module.scss';
-import ConfigureDispositiveFormContainer from './components/ConfigureDispositiveForm';
+import ConfigureDispositiveForm from './components/ConfigureDispositiveForm';
 import AddDispositiveForm from './components/AddDispositiveForm';
 
 class Dispositives extends Component {
@@ -34,13 +34,14 @@ class Dispositives extends Component {
     }
 
     render(){
-        const { dispositives } = this.props;
+        const { dispositives, currentDispositive } = this.props;
         const { addFormOpen } = this.state;
         return(
             <div className={styles.dispositivesLayout}>
                 {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} />)}
                 <Button icon="add" iconType="fab" handleClick={this.toggleAddForm} />
                 {addFormOpen && <AddDispositiveForm onExit={this.toggleAddForm}/> }
+                {currentDispositive && <ConfigureDispositiveForm />}
             </div>
         );
     }

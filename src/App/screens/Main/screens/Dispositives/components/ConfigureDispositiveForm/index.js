@@ -5,6 +5,11 @@ import dispositiveActions from '../../../../../../../redux/dipositives/actions';
 import Options from '../Options';
 
 class ConfigureDispositiveFormContainer extends Component {
+
+    componentDidMount = () => {
+        window.componentHandler.upgradeAllRegistered();
+    }
+
     getDispositiveActions = () => {
         const { currentDispositive, dispositivesType } = this.props;
         const currentDispositiveType = dispositivesType.find(elem => elem.id === currentDispositive.typeId);
@@ -33,15 +38,12 @@ class ConfigureDispositiveFormContainer extends Component {
     }
     render() {
         return (
-            <dialog class="mdl-dialog">
-                <div class="mdl-dialog__content">
-                    <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={Options} actions={this.getDispositiveActions()}/>
+            <div className="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div className="mdl-card__title">
+                    <h2 className="mdl-card__title-text">Welcome</h2>
                 </div>
-                <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-                <button type="button" class="mdl-button">Agree</button>
-                <button type="button" class="mdl-button close">Disagree</button>
-                </div>
-          </dialog>
+                <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={Options} actions={this.getDispositiveActions()}/>
+            </div>
         );
     }
 }
