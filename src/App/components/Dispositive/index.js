@@ -26,7 +26,7 @@ class Dispositive extends Component {
             <div className={styles.dispositive}>
                 <div className={styles.icon}> ICONO </div>
                 <div className={styles.name}>{dispositive.name}</div>
-                {isToggable && <SwitchButton />}
+                {isToggable && <SwitchButton className={styles.switch} />}
                 <Button handleClick={this.onConfigClickHandler} icon="build" iconType="icon" />
                 <Button handleClick={this.onDeleteClickHandler} icon="delete" iconType="icon" />
             </div>
