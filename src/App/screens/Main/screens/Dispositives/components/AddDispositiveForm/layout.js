@@ -2,10 +2,13 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
 import CustomSelect from '../../../../../../components/CustomSelect';
+import styles from './styles.module.scss';
+import Button from '../../../../../../components/Button';
 
-function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms }) {
+function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms, onExit }) {
+    debugger;
     return(
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <Field 
                 name="name"
                 label="Dispositive name"
@@ -24,9 +27,8 @@ function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms }) {
                 elements={rooms}
                 component={CustomSelect}
             />
-            <button type="submit" disable={invalid}>
-                Add
-            </button>
+            <Button type="button" label={"SALIR"} handleClick={onExit} />
+            <Button type="submit" disable={invalid} label={"ADD"} />
         </form>
     );
 }

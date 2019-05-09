@@ -3,10 +3,7 @@ import Dispositive from '../../../../components/Dispositive';
 import dispositiveActions from '../../../../../redux/dipositives/actions';
 import { connect } from 'react-redux';
 import Button from '../../../../components/Button';
-import Popup from '../../../../components/Popup';
-
 import styles from './styles.module.scss';
-import AddDispositiveFormContainer from './components/AddDispositiveForm';
 import ConfigureDispositiveFormContainer from './components/ConfigureDispositiveForm';
 import AddDispositiveForm from './components/AddDispositiveForm';
 
@@ -23,6 +20,7 @@ class Dispositives extends Component {
     }
 
     toggleAddForm = () => {
+        debugger;
         this.setState(state => ({
             addFormOpen: !state.addFormOpen
         }));
@@ -36,13 +34,13 @@ class Dispositives extends Component {
     }
 
     render(){
-        const { dispositives, currentDispositive } = this.props;
+        const { dispositives } = this.props;
         const { addFormOpen } = this.state;
         return(
             <div className={styles.dispositivesLayout}>
                 {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} />)}
                 <Button icon="add" circle={true} handleClick={this.toggleAddForm} />
-                <Popup trigger={addFormOpen} component={<AddDispositiveForm />}/>
+                {addFormOpen && <AddDispositiveForm onExit={this.toggleAddForm}/> }
             </div>
         );
     }

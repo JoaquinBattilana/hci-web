@@ -1,10 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
+// import styles from './styles.module.scss';
 
 function ConfigureDispositiveForm({ handleSubmit, options: Options, actions }) {
     return(
-        <form onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit}>
             <h2>Configure Dispositive</h2>
             <Field
                 name="name"
