@@ -3,11 +3,22 @@ import ConfigureDispositiveForm from './layout';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../../../../../redux/dipositives/actions';
 import Options from '../Options';
+import devices from '../../../../../../../services/DevicesService';
 
 class ConfigureDispositiveFormContainer extends Component {
 
     componentDidMount = () => {
         window.componentHandler.upgradeAllRegistered();
+    }
+
+    getDispositiveState = async () => {
+        debugger;
+        const { currentDispositive } = this.props;
+        const response = await devices.executeDeviceAction(currentDispositive.id, "getState");
+        debugger;
+        if(response.ok){
+            return response.data;
+        }
     }
 
     getDispositiveActions = () => {
@@ -42,7 +53,7 @@ class ConfigureDispositiveFormContainer extends Component {
                 <div className="mdl-card__title">
                     <h2 className="mdl-card__title-text">Welcome</h2>
                 </div>
-                <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={Options} actions={this.getDispositiveActions()}/>
+                <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={Options} actions={this.getDispositiveActions()} initialValues={this.getDispositiveState()}/>
             </div>
         );
     }

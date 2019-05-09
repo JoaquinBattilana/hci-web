@@ -5,10 +5,12 @@ class SliderInput extends Component {
         window.componentHandler.upgradeAllRegistered();
     }
     render(){
-        const {min, max, input } = this.props;
+        const {id, min, max, input } = this.props;
         return(
-            <input {...input}  class="mdl-slider mdl-js-slider" type="range"
-             min={min} max={max} />
+            <div>
+                <input class="mdl-slider mdl-js-slider" id={id} type="range"
+                min={min} max={max}  value={0} {...input}   />
+            </div>
         );
     }
 }

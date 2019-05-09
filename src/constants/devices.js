@@ -22,4 +22,8 @@ const DEVICES = [
     { name: "refrigerator", id: "rnizejqr2di0okho"}
 ];
 
+export const DEVICES_ICONS = {
+    lemp: "highlight"
+}
+
 export default DEVICES;

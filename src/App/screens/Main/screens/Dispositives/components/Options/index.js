@@ -7,14 +7,22 @@ import SliderInput from '../../../../../../components/SliderInput';
 
 class Options extends Component {
     render() {
-        const { actions } = this.props;
+        const { actions, initialState } = this.props;
         if(!actions){
             return null;
         }
         debugger;
         return actions.map(action =>{
+            if(action.name==="getState"){
+                return;
+            }
             if(action.params.length===0){
-                return <SwitchButton label={action.name} />
+                return(
+                    <Field
+                        name={action.name} 
+                        component={SwitchButton}
+                    />
+                );
             }
             return action.params.map(param => {
                 if( (param.type === "string" ||
@@ -25,8 +33,8 @@ class Options extends Component {
                                 <Field
                                     name={param.name}
                                     component={SliderInput}
-                                    min={param.minValue}
-                                    max={param.maxValue}
+                                    min={parseInt(param.minValue)}
+                                    max={parseInt(param.maxValue)}
                                 />
                             );
                         } else{

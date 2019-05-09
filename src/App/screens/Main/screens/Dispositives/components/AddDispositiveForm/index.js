@@ -36,7 +36,7 @@ class AddDispositiveFormContainer extends Component {
             </div>
             <AddDispositiveForm onSubmit={this.handleSubmit} dispositives={dispositivesType} rooms={rooms} onExit={onExit} />
         </div>
-        );    
+        );
     }
 }
 

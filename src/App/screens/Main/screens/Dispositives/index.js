@@ -6,6 +6,7 @@ import Button from '../../../../components/Button';
 import styles from './styles.module.scss';
 import ConfigureDispositiveForm from './components/ConfigureDispositiveForm';
 import AddDispositiveForm from './components/AddDispositiveForm';
+import { DEVICES_ICONS } from '../../../../../constants/devices';
 
 class Dispositives extends Component {
 
@@ -33,12 +34,19 @@ class Dispositives extends Component {
         return true;
     }
 
+    getIcon = dispositive => {
+        const { dispositivesType } = this.props;
+        if(!dispositivesType && dispositivesType.find(elem => dispositive.typeId === elem.id).name === "lamp") {
+            return DEVICES_ICONS['lamp'];
+        }
+    }
+
     render(){
         const { dispositives, currentDispositive } = this.props;
         const { addFormOpen } = this.state;
         return(
             <div className={styles.dispositivesLayout}>
-                {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} />)}
+                {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} icon={this.getIcon(elem)}/>)}
                 <Button icon="add" iconType="fab" handleClick={this.toggleAddForm} />
                 {addFormOpen && <AddDispositiveForm onExit={this.toggleAddForm}/> }
                 {currentDispositive && <ConfigureDispositiveForm />}

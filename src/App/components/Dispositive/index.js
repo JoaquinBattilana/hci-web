@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import dispositiveActions from '../../../redux/dipositives/actions';
 import SwitchButton from '../SwitchButton';
 import Button from '../Button';
+import { DEVICES_ICONS } from '../../../constants/devices';
 
 class Dispositive extends Component {
     componentDidMount = () => {
@@ -21,10 +22,10 @@ class Dispositive extends Component {
     }
 
     render() {
-        const { dispositive, isToggable } = this.props; 
+        const { dispositive, isToggable, icon } = this.props; 
         return(
             <div className={styles.dispositive}>
-                <div className={styles.icon}> ICONO </div>
+                <i className="material-icons">{icon}</i>
                 <div className={styles.name}>{dispositive.name}</div>
                 {isToggable && <SwitchButton className={styles.switch} />}
                 <Button handleClick={this.onConfigClickHandler} icon="build" iconType="icon" />
