@@ -5,7 +5,6 @@ class Button extends Component {
         window.componentHandler.upgradeAllRegistered();
     }
     render() {
-        debugger;
         const { label, icon, handleClick, circle } = this.props;
         const shape = (circle ? 'fab' : 'raised');
         return (
