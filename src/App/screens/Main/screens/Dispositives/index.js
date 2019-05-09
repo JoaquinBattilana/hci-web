@@ -39,7 +39,7 @@ class Dispositives extends Component {
         return(
             <div className={styles.dispositivesLayout}>
                 {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} />)}
-                <Button icon="add" circle={true} handleClick={this.toggleAddForm} />
+                <Button icon="add" iconType="fab" handleClick={this.toggleAddForm} />
                 {addFormOpen && <AddDispositiveForm onExit={this.toggleAddForm}/> }
             </div>
         );
