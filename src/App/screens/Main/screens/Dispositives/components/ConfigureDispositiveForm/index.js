@@ -32,7 +32,17 @@ class ConfigureDispositiveFormContainer extends Component {
         this.executeFormActions(data);
     }
     render() {
-        return <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={Options} actions={this.getDispositiveActions()}/>;
+        return (
+            <dialog class="mdl-dialog">
+                <div class="mdl-dialog__content">
+                    <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={Options} actions={this.getDispositiveActions()}/>
+                </div>
+                <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+                <button type="button" class="mdl-button">Agree</button>
+                <button type="button" class="mdl-button close">Disagree</button>
+                </div>
+          </dialog>
+        );
     }
 }
 

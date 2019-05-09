@@ -23,7 +23,10 @@ class AddDispositiveFormContainer extends Component {
         postDispositive(readyData, data.room);
     }
     render() {
-        const { dispositivesType, rooms } = this.props;
+        const { dispositivesType, rooms, open } = this.props;
+        if(!open) {
+            return null;
+        }
         return (
             <div>
                 <h2>Add Dispositive</h2>

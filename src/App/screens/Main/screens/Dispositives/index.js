@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Dispositive from '../../../../components/Dispositive';
 import dispositiveActions from '../../../../../redux/dipositives/actions';
 import { connect } from 'react-redux';
+import Button from '../../../../components/Button';
 
 import styles from './styles.module.scss';
 import AddDispositiveFormContainer from './components/AddDispositiveForm';
 import ConfigureDispositiveFormContainer from './components/ConfigureDispositiveForm';
+import AddDispositiveForm from './components/AddDispositiveForm';
 
 class Dispositives extends Component {
+
+    state = {
+        addFormOpen: false
+    }
     
     componentDidMount = () => {
         const { getDispositives, getDispositivesTypes } = this.props;
@@ -15,6 +21,11 @@ class Dispositives extends Component {
         getDispositives();
     }
 
+    toggleAddForm = () => {
+        this.setState(state => ({
+            addFormOpen: !state.addFormOpen
+        }));
+    }
     isToggable = dispositive => {
         const { dispositivesType } = this.props;
         if(!dispositivesType && dispositivesType.find(elem => dispositive.typeId === elem.id).name === "refrigerator") {
@@ -25,11 +36,12 @@ class Dispositives extends Component {
 
     render(){
         const { dispositives, currentDispositive } = this.props;
+        const { addFormOpen } = this.state;
         return(
-            <div className={styles.dispositivesContainer}>
+            <div className={styles.dispositivesLayout}>
                 {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} />)}
-                <AddDispositiveFormContainer/>
-                {currentDispositive && <ConfigureDispositiveFormContainer />}
+                <Button icon="add" circle={true} handleClick={this.toggleAddForm} />
+                <AddDispositiveForm open={addFormOpen} />
             </div>
         );
     }

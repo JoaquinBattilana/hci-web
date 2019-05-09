@@ -16,7 +16,7 @@ function Main() {
         <TopBar />
         <SideBar />
         <main class="mdl-layout__content">
-            <div class="page-content">
+            <div class={`page-content`}>
                 <Switch>
                     <Route path="/dispositives" component={Dispositives} />
                     <Route path="/rooms" component={Rooms} />

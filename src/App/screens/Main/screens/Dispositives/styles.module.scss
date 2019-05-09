@@ -1,5 +1,13 @@
 @import 'src/scss/constants';
 
-.dispositives-container {
-    padding-top: 50px;
+.dispositives-layout {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    padding-top: 5%;
+}
+
+.button-container {
+    text-align: center;
+    width: 100%;
 }

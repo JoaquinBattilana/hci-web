@@ -5,10 +5,13 @@ class Button extends Component {
         window.componentHandler.upgradeAllRegistered();
     }
     render() {
-        const { label, handleClick } = this.props;
+        debugger;
+        const { label, icon, handleClick, circle } = this.props;
+        const shape = (circle ? 'fab' : 'raised');
         return (
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onClick={handleClick}>
+            <button class={`mdl-button mdl-js-button mdl-button--${shape} mdl-button--colored`} onClick={handleClick}>
             {label}
+            {icon ? <i class="material-icons">add</i> : null}
             </button>
         ); 
     }

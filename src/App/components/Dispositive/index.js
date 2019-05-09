@@ -6,6 +6,10 @@ import SwitchButton from '../SwitchButton';
 import Button from '../Button';
 
 class Dispositive extends Component {
+    componentDidMount = () => {
+        window.componentHandler.upgradeAllRegistered();
+    }
+
     onConfigClickHandler = () => {
         const { dispositive, onConfigClick } = this.props
         onConfigClick(dispositive);
