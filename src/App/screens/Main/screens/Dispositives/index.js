@@ -3,6 +3,7 @@ import Dispositive from '../../../../components/Dispositive';
 import dispositiveActions from '../../../../../redux/dipositives/actions';
 import { connect } from 'react-redux';
 import Button from '../../../../components/Button';
+import Popup from 'reactjs-popup';
 
 import styles from './styles.module.scss';
 import AddDispositiveFormContainer from './components/AddDispositiveForm';
@@ -40,8 +41,11 @@ class Dispositives extends Component {
         return(
             <div className={styles.dispositivesLayout}>
                 {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} />)}
-                <Button icon="add" circle={true} handleClick={this.toggleAddForm} />
-                <AddDispositiveForm open={addFormOpen} />
+                <Popup trigger={<Button icon="add" circle={true} handleClick={this.toggleAddForm} />}
+                    open={addFormOpen}
+                    position="center">
+                    <AddDispositiveForm />
+                </Popup>
             </div>
         );
     }
