@@ -7,7 +7,16 @@ import devices from '../../../../../../../services/DevicesService';
 
 class ConfigureDispositiveFormContainer extends Component {
 
+    state = {
+        dispositiveState: {},
+        isLoading: false
+    }
+
     componentDidMount = () => {
+        this.getDispositiveState();
+    }
+
+    componentDidUpdate = () => {
         window.componentHandler.upgradeAllRegistered();
     }
 
@@ -17,10 +26,16 @@ class ConfigureDispositiveFormContainer extends Component {
         if(!currentDispositive) {
             return null;
         }
+        this.setState({isLoading: true});
         const response = await devices.executeDeviceAction(currentDispositive.id, "getState");
-        debugger;
         if(response.ok){
-            return response.data;
+            this.setState({
+                dispositiveState: {
+                    name: currentDispositive.name,
+                    ...response.data
+                },
+                isLoading: false
+            })
         }
     }
 
@@ -60,7 +75,8 @@ class ConfigureDispositiveFormContainer extends Component {
     }
     render() {
         const { title } = this.props;
-        return (
+        const { isLoading, dispositiveState } = this.state;
+        return (isLoading ? <h1>LOADING</h1> : (
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
                     <h2 className="mdl-card__title-text">{title}</h2>
@@ -69,11 +85,11 @@ class ConfigureDispositiveFormContainer extends Component {
                     onSubmit={this.handleSubmit}
                     options={Options}
                     actions={this.getDispositiveActions()}
-                    initialValues={this.getDispositiveState()}
+                    initialValues={{...dispositiveState}}
                     onExit={this.onExit}
                 />
             </div>
-        );
+        ));
     }
 }
 

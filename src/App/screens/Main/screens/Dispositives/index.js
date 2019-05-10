@@ -65,7 +65,13 @@ class Dispositives extends Component {
                 )}
                 <Button icon="add" iconType="fab" handleClick={this.toggleAddForm} />
                 {addFormOpen && <AddDispositiveForm title="Agregar dispositivo" onExit={this.toggleAddForm}/> }
-                {currentDispositive && <ConfigureDispositiveForm title="Configurar dispositivo" setCurrentDispositive={this.setCurrentDispositive} />}
+                {currentDispositive &&
+                <ConfigureDispositiveForm
+                    title="Configurar dispositivo"
+                    setCurrentDispositive={this.setCurrentDispositive}
+                    currentDispositive={currentDispositive}
+                />
+                }
             </div>
         );
     }

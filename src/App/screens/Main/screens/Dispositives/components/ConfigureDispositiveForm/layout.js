@@ -5,7 +5,6 @@ import Button from '../../../../../../components/Button';
 import styles from './styles.module.scss';
 
 function ConfigureDispositiveForm({ handleSubmit, options: Options, actions, initialState, onExit, invalid }) {
-    debugger;
     return(
         <form  className={styles.form} onSubmit={handleSubmit}>
             <Field
@@ -24,5 +23,6 @@ function ConfigureDispositiveForm({ handleSubmit, options: Options, actions, ini
 }
 
 export default reduxForm({
-    form: 'configure dispositive'
+    form: 'configure dispositive',
+    enableReinitialize: true
 })(ConfigureDispositiveForm);

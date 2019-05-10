@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { Field } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
 import CustomSelect from '../../../../../../components/CustomSelect';
-import SwitchButton from '../../../../../../components/SwitchButton';
+import Button from '../../../../../../components/Button';
 import SliderInput from '../../../../../../components/SliderInput';
 
 class Options extends Component {
     render() {
-        const { actions, initialState } = this.props;
+        const { actions } = this.props;
         if(!actions){
             return null;
         }
-        debugger;
         return actions.map(action =>{
             if(action.name==="getState"){
                 return;
@@ -19,8 +18,9 @@ class Options extends Component {
             if(action.params.length===0){
                 return(
                     <Field
-                        name={action.name} 
-                        component={SwitchButton}
+                        name={action.name}
+                        label={action.name}
+                        component={Button}
                     />
                 );
             }
