@@ -11,7 +11,8 @@ import { DEVICES_ICONS } from '../../../../../constants/devices';
 class Dispositives extends Component {
 
     state = {
-        addFormOpen: false
+        addFormOpen: false,
+        currentDispositive: null
     }
     
     componentDidMount = () => {
@@ -26,6 +27,13 @@ class Dispositives extends Component {
             addFormOpen: !state.addFormOpen
         }));
     }
+
+    setCurrentDispositive = dispositive => {
+        this.setState({
+            currentDispositive: dispositive
+        });
+    }
+
     isToggable = dispositive => {
         const { dispositivesType } = this.props;
         if(!dispositivesType && dispositivesType.find(elem => dispositive.typeId === elem.id).name === "refrigerator") {
@@ -42,26 +50,32 @@ class Dispositives extends Component {
     }
 
     render(){
-        const { dispositives, currentDispositive } = this.props;
-        const { addFormOpen } = this.state;
+        const { dispositives } = this.props;
+        const { addFormOpen, currentDispositive } = this.state;
         return(
             <div className={styles.dispositivesLayout}>
                 <h2 className={styles.title}>Dispositives</h2>
-                {dispositives.map( elem => <Dispositive dispositive={elem} isToggable={this.isToggable(elem)} icon={this.getIcon(elem)}/>)}
+                {dispositives.map( elem =>
+                    <Dispositive 
+                        dispositive={elem}
+                        isToggable={this.isToggable(elem)}
+                        icon={this.getIcon(elem)}
+                        setCurrentDispositive={this.setCurrentDispositive}
+                    />
+                )}
                 <Button icon="add" iconType="fab" handleClick={this.toggleAddForm} />
                 {addFormOpen && <AddDispositiveForm title="Agregar dispositivo" onExit={this.toggleAddForm}/> }
-                {currentDispositive && <ConfigureDispositiveForm />}
+                {currentDispositive && <ConfigureDispositiveForm title="Configurar dispositivo" setCurrentDispositive={this.setCurrentDispositive} />}
             </div>
         );
     }
 }
 
-const mapStateToProps = ({ dispositives: { currentDispositive, dispositivesType, dispositives, isLoading, hasError}}) => ({
+const mapStateToProps = ({ dispositives: { dispositivesType, dispositives, isLoading, hasError}}) => ({
     dispositivesType,
     dispositives,
     hasError,
     isLoading,
-    currentDispositive
 });
 
 const mapDispatchToProps = dispatch => ({

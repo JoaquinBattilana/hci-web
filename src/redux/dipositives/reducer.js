@@ -27,11 +27,6 @@ function reducer(state=initialState, action) {
                 isLoading: false,
                 hasError: true
             });
-        case actions.SET_CURRENT_DISPOSITIVE:
-            return({
-                ...state,
-                currentDispositive: action.payload
-            });
         case actions.GET_DISPOSITIVES_TYPES:
             return({
                 ...state,

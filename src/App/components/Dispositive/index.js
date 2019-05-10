@@ -12,8 +12,8 @@ class Dispositive extends Component {
     }
 
     onConfigClickHandler = () => {
-        const { dispositive, onConfigClick } = this.props
-        onConfigClick(dispositive);
+        const { dispositive, setCurrentDispositive } = this.props
+        setCurrentDispositive(dispositive);
     }
     
     onDeleteClickHandler = () => {
@@ -22,7 +22,7 @@ class Dispositive extends Component {
     }
 
     render() {
-        const { dispositive, isToggable, icon } = this.props; 
+        const { dispositive, isToggable } = this.props; 
         return(
             <div className={`mdl-data-table__cell--non-numeric ${styles.dispositive}`}>
                 <i className={`material-icons ${styles.icon}`}>highlight</i>
@@ -36,7 +36,6 @@ class Dispositive extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    onConfigClick: dispositive => dispatch(dispositiveActions.setCurrentDispositive(dispositive)),
     onDeleteClick: id => dispatch(dispositiveActions.deleteDispositive(id))
 });
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
-// import styles from './styles.module.scss';
+import Button from '../../../../../../components/Button';
+import styles from './styles.module.scss';
 
-function ConfigureDispositiveForm({ handleSubmit, options: Options, actions, initialState }) {
+function ConfigureDispositiveForm({ handleSubmit, options: Options, actions, initialState, onExit, invalid }) {
     debugger;
     return(
-        <form  onSubmit={handleSubmit}>
-            <h2>Configure Dispositive</h2>
+        <form  className={styles.form} onSubmit={handleSubmit}>
             <Field
                 name="name"
                 label="name"
@@ -15,7 +15,10 @@ function ConfigureDispositiveForm({ handleSubmit, options: Options, actions, ini
                 component={CustomInput}
             />
             <Options actions={actions} initialState={initialState}/>
-            <button type="submit">OK</button>
+            <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
+                <Button type="button" iconType="raised" label={"SALIR"} handleClick={onExit} />
+                <Button type="submit" iconType="raised" disable={invalid} label={"ADD"} />
+            </div>
         </form>
     );
 }

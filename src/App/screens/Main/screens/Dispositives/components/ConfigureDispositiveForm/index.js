@@ -14,6 +14,9 @@ class ConfigureDispositiveFormContainer extends Component {
     getDispositiveState = async () => {
         debugger;
         const { currentDispositive } = this.props;
+        if(!currentDispositive) {
+            return null;
+        }
         const response = await devices.executeDeviceAction(currentDispositive.id, "getState");
         debugger;
         if(response.ok){
@@ -23,6 +26,9 @@ class ConfigureDispositiveFormContainer extends Component {
 
     getDispositiveActions = () => {
         const { currentDispositive, dispositivesType } = this.props;
+        if(!currentDispositive){
+            return null;
+        }
         const currentDispositiveType = dispositivesType.find(elem => elem.id === currentDispositive.typeId);
         return currentDispositiveType.actions;
     }
@@ -38,8 +44,13 @@ class ConfigureDispositiveFormContainer extends Component {
         keys.map( elem => executeDeviceAction(currentDispositive.id, 'set'+this.capitalize(elem), [{ [elem]: data[elem] }] ));
     }
 
+    onExit = () => {
+        const { setCurrentDispositive } = this.props;
+        setCurrentDispositive(null);
+    }
+
     handleSubmit = data => {
-        const { currentDispositive, putDevice } = this.props;
+        const { putDevice, currentDispositive } = this.props;
         const newData = {
             ...currentDispositive,
             name: data.name
@@ -48,19 +59,25 @@ class ConfigureDispositiveFormContainer extends Component {
         this.executeFormActions(data);
     }
     render() {
+        const { title } = this.props;
         return (
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
-                    <h2 className="mdl-card__title-text">Welcome</h2>
+                    <h2 className="mdl-card__title-text">{title}</h2>
                 </div>
-                <ConfigureDispositiveForm onSubmit={this.handleSubmit} options={Options} actions={this.getDispositiveActions()} initialValues={this.getDispositiveState()}/>
+                <ConfigureDispositiveForm
+                    onSubmit={this.handleSubmit}
+                    options={Options}
+                    actions={this.getDispositiveActions()}
+                    initialValues={this.getDispositiveState()}
+                    onExit={this.onExit}
+                />
             </div>
         );
     }
 }
 
-const mapStateToProps = ({ dispositives: { currentDispositive, dispositivesType } }) => ({
-    currentDispositive,
+const mapStateToProps = ({ dispositives: {dispositivesType} }) => ({
     dispositivesType
 });
 

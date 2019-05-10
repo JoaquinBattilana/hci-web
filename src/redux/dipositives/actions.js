@@ -1,8 +1,6 @@
 import dispositives from '../../services/DevicesService';
-import api from '../../config/api';
 
 export const actions = {
-    SET_CURRENT_DISPOSITIVE: "@@DISPOSITIVES/SET_CURRENT_DISPOSTIVE",
     GET_DISPOSITIVES: "@@DISPOSITIVES/GET_DISPOSITIVES",
     GET_DISPOSITIVES_SUCESS: "@DISPOSITIVES/GET_DISPOSITIVES_SUCESS",
     POST_DISPOSITIVE: "@@DISPOSITIVES/POST_DISPOSITIVES",
@@ -34,12 +32,6 @@ const actionCreators = {
         } else {
             dispatch({ type: actions.EXECUTE_DEVICE_ACTION_FAIL});
         }
-    },
-    setCurrentDispositive: dispositive => {
-        return({
-            type: actions.SET_CURRENT_DISPOSITIVE,
-            payload: dispositive
-        })
     },
     getDispositivesTypes: () => async dispatch => {
         dispatch({ type: actions.GET_DISPOSITIVES_TYPES});
