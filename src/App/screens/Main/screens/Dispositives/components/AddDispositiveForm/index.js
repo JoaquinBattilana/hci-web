@@ -25,14 +25,14 @@ class AddDispositiveFormContainer extends Component {
         postDispositive(readyData, data.room);
     }
     render() {
-        const { dispositivesType, rooms, open, onExit } = this.props;
+        const { dispositivesType, rooms, open, onExit, title } = this.props;
         if(open) {
             return null;
         }
         return (
         <div className="demo-card-wide mdl-card mdl-shadow--2dp">
             <div className="mdl-card__title">
-            <h2 className="mdl-card__title-text">Welcome</h2>
+            <h2 className="mdl-card__title-text">{title}</h2>
             </div>
             <AddDispositiveForm onSubmit={this.handleSubmit} dispositives={dispositivesType} rooms={rooms} onExit={onExit} />
         </div>

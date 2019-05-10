@@ -24,8 +24,8 @@ class Dispositive extends Component {
     render() {
         const { dispositive, isToggable, icon } = this.props; 
         return(
-            <div className={styles.dispositive}>
-                <i className="material-icons">{icon}</i>
+            <div className={`mdl-data-table__cell--non-numeric ${styles.dispositive}`}>
+                <i className={`material-icons ${styles.icon}`}>highlight</i>
                 <div className={styles.name}>{dispositive.name}</div>
                 {isToggable && <SwitchButton className={styles.switch} />}
                 <Button handleClick={this.onConfigClickHandler} icon="build" iconType="icon" />

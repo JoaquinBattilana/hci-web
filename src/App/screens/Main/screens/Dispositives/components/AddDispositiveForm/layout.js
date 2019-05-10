@@ -27,8 +27,10 @@ function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms, onExit 
                 elements={rooms}
                 component={CustomSelect}
             />
-            <Button type="button" label={"SALIR"} handleClick={onExit} />
-            <Button type="submit" disable={invalid} label={"ADD"} />
+            <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
+                <Button type="button" iconType="raised" label={"SALIR"} handleClick={onExit} />
+                <Button type="submit" iconType="raised" disable={invalid} label={"ADD"} />
+            </div>
         </form>
     );
 }

@@ -1,12 +1,15 @@
 .dispositive {
     align-items: center;
-    border: 1px solid black;
     display: flex;
     justify-content: flex-end;
     padding: 0 20px;
 
+    .icon {
+        margin-right: 5%;
+    }
+
     .switch {
-        margin-right: 30px;
+        margin-right: 5%;
     }
 
     .name {
