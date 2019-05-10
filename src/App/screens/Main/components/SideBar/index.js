@@ -1,26 +1,35 @@
 import React from 'react';
-import styles from './styles.module.scss';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { push } from 'connected-react-router';
+import { NavLink } from 'react-router-dom';
 
-function SideBar({ toDispositives, toRooms, toRoutines }) {
+function SideBar() {
     return(
         <div className="mdl-layout__drawer">
         <span className="mdl-layout-title">Title</span>
             <nav className="mdl-navigation">
-                <Link className="mdl-navigation__link" to="/dispositives" >Dispositives</Link>
-                <Link className="mdl-navigation__link" to="/rooms" >Rooms</Link>
-                <Link className="mdl-navigation__link" to="/routines" >Routines</Link>
+                <NavLink
+                    className="mdl-navigation__link"
+                    activeClassName="mdl-navigation__link--current"
+                    to="/dispositives"
+                >
+                    Dispositivos
+                </NavLink>
+                <NavLink
+                    className="mdl-navigation__link"
+                    activeClassName="mdl-navigation__link--current"
+                    to="/rooms"
+                >
+                    Habitaciones
+                </NavLink>
+                <NavLink
+                    className="mdl-navigation__link"
+                    activeClassName="mdl-navigation__link--current"
+                    to="/routines"
+                >
+                    Rutinas
+                </NavLink>
             </nav>
         </div>
     );
 }
 
-const mapDispatchToProps = dispatch => ({
-    toDispositives: () => dispatch(push('/dispositives')),
-    toRooms: () => dispatch(push('/rooms')),
-    toRoutines: () => dispatch(push('/routines'))
-});
-
-export default connect(null, mapDispatchToProps)(SideBar);
+export default SideBar;
