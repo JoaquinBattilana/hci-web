@@ -91,6 +91,7 @@ const actionCreators = {
         const response = await dispositives.deleteDevice(deviceId);
         if(response.ok) {
             dispatch({ type:actions.DELETE_DISPOSITIVE_SUCESS});
+            dispatch(actionCreators.getDispositives());
         } else {
             dispatch({ type: actions.DELETE_DISPOSITIVE_FAIL });
         }
