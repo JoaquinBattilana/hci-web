@@ -65,8 +65,8 @@ class ConfigureDispositiveFormContainer extends Component {
     }
 
     onExit = () => {
-        const { setCurrentDispositive } = this.props;
-        setCurrentDispositive(null);
+        const { setCurrentElement } = this.props;
+        setCurrentElement(null);
     }
 
     handleSubmit = data => {
@@ -79,13 +79,14 @@ class ConfigureDispositiveFormContainer extends Component {
         this.executeFormActions(data);
     }
     render() {
-        const { title, currentDispositive } = this.props;
+        debugger;
+        const { currentDispositive } = this.props;
         const { isLoading, dispositiveState } = this.state;
         debugger;
         return (isLoading ? <h1>LOADING</h1> : (
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
-                    <h2 className="mdl-card__title-text">{title}</h2>
+                    <h2 className="mdl-card__title-text">Configurar dispositivo</h2>
                 </div>
                 <ConfigureDispositiveForm
                     executeButtonAction = {this.executeButtonAction}

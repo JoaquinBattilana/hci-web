@@ -1,0 +1,18 @@
+@import 'src/scss/constants';
+
+.main-view-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 95%;
+    padding-top: 5%;
+
+    .title {
+        align-self: center;
+    }
+}
+
+.button-container {
+    text-align: center;
+    width: 100%;
+}
