@@ -1,6 +1,18 @@
 .room {
-    border: 1px solid black;
+    align-items: center;
     display: flex;
-    padding-left: 1%;
-    width: 100%;
+    justify-content: flex-end;
+    padding: 0 20px;
+
+    .icon {
+        margin-right: 5%;
+    }
+
+    .switch {
+        margin-right: 5%;
+    }
+
+    .name {
+        margin-right: auto;
+    }
 }

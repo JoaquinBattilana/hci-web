@@ -16,7 +16,8 @@ class Rooms extends Component {
     render(){
         const { rooms, roomSelected, roomSelectedDispositives } = this.props;
         return(
-            <div className={styles.roomsContainer}>
+            <div className={styles.roomsLayout}>
+                <h2 className={styles.title}>Habitaciones</h2>
                 {rooms.map( elem => <Room room={elem}/>)}
                 {roomSelected && roomSelectedDispositives.map(elem => <Dispositive dispositive={elem}/>)}
                 <AddRoomForm />

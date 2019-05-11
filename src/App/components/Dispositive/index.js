@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import dispositiveActions from '../../../redux/dipositives/actions';
 import SwitchButton from '../SwitchButton';
 import Button from '../Button';
-import { DEVICES_ICONS } from '../../../constants/devices';
 
 class Dispositive extends Component {
     componentDidMount = () => {
