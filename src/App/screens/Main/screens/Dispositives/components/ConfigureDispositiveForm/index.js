@@ -29,10 +29,11 @@ class ConfigureDispositiveFormContainer extends Component {
         this.setState({isLoading: true});
         const response = await devices.executeDeviceAction(currentDispositive.id, "getState");
         if(response.ok){
+            debugger;
             this.setState({
                 dispositiveState: {
                     name: currentDispositive.name,
-                    ...response.data
+                    ...response.data.result
                 },
                 isLoading: false
             })

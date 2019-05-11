@@ -6,7 +6,6 @@ import styles from './styles.module.scss';
 import Button from '../../../../../../components/Button';
 
 function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms, onExit }) {
-    debugger;
     return(
         <form className={styles.form} onSubmit={handleSubmit}>
             <Field 

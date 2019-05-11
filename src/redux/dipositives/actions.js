@@ -62,6 +62,7 @@ const actionCreators = {
         const response = await dispositives.postDevices(data);
         if (response.ok) {
             dispatch({type: actions.POST_DISPOSITIVE_SUCESS});
+            dispatch(actionCreators.getDispositives());
             if (roomId !== undefined) {
                 const response2 = await dispositives.postDeviceRoom(response.data.device.id, roomId);
                 if(response2.ok) {

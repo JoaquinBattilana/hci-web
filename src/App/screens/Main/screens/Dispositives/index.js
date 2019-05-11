@@ -22,7 +22,6 @@ class Dispositives extends Component {
     }
 
     toggleAddForm = () => {
-        debugger;
         this.setState(state => ({
             addFormOpen: !state.addFormOpen
         }));
@@ -50,19 +49,21 @@ class Dispositives extends Component {
     }
 
     render(){
-        const { dispositives } = this.props;
+        const { dispositives, isLoading, getDispositives } = this.props;
         const { addFormOpen, currentDispositive } = this.state;
         return(
             <div className={styles.dispositivesLayout}>
                 <h2 className={styles.title}>Dispositives</h2>
-                {dispositives.map( elem =>
-                    <Dispositive 
-                        dispositive={elem}
-                        isToggable={this.isToggable(elem)}
-                        icon={this.getIcon(elem)}
-                        setCurrentDispositive={this.setCurrentDispositive}
-                    />
-                )}
+                {isLoading ? "LOADING" : 
+                    dispositives.map( elem =>
+                        <Dispositive 
+                            dispositive={elem}
+                            isToggable={this.isToggable(elem)}
+                            icon={this.getIcon(elem)}
+                            setCurrentDispositive={this.setCurrentDispositive}
+                        />
+                    )
+                }
                 <Button icon="add" iconType="fab" handleClick={this.toggleAddForm} />
                 {addFormOpen && <AddDispositiveForm title="Agregar dispositivo" onExit={this.toggleAddForm}/> }
                 {currentDispositive &&

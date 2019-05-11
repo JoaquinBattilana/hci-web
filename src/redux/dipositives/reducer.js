@@ -53,9 +53,9 @@ function reducer(state=initialState, action) {
         case actions.GET_DISPOSITIVES_SUCESS:
             return({
                 ...state,
+                dispositives: [...action.payload],
                 isLoading: false,
-                hasError: false,
-                dispositives: action.payload
+                hasError: false
             });
         case actions.GET_DISPOSITIVE_FAIL:
             return({
