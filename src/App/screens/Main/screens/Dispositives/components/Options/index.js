@@ -7,7 +7,7 @@ import SliderInput from '../../../../../../components/SliderInput';
 
 class Options extends Component {
     render() {
-        const { actions } = this.props;
+        const { actions, dispositiveId, executeButtonAction } = this.props;
         if(!actions){
             return null;
         }
@@ -17,11 +17,7 @@ class Options extends Component {
             }
             if(action.params.length===0){
                 return(
-                    <Field
-                        name={action.name}
-                        label={action.name}
-                        component={Button}
-                    />
+                    <Button label={action.name} handleClick={() => executeButtonAction(dispositiveId,action.name)} />
                 );
             }
             return action.params.map(param => {
