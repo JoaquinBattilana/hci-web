@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import styles from './styles.module.scss';
 
 class SliderInput extends Component {
     componentDidUpdate = () => {
         window.componentHandler.upgradeAllRegistered();
     }
     render(){
-        const {id, min, max, input } = this.props;
+        const {label, min, max, input} = this.props;
         return(
-            <div>
-                <input class="mdl-slider mdl-js-slider" id={id} type="range"
-                min={min} max={max}  value={0} {...input}   />
+            <div class={styles.sliderLayout}>
+                <span>{label}</span>
+                <input {...input} type="range"
+                min={min} max={max}  defaultValue={0} {...input}  />
             </div>
         );
     }

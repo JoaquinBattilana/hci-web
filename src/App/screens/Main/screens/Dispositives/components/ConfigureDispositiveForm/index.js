@@ -59,7 +59,7 @@ class ConfigureDispositiveFormContainer extends Component {
     executeFormActions = data => {
         const { executeDeviceAction, currentDispositive } = this.props;
         const keys = Object.keys(data);
-        keys.map( elem => executeDeviceAction(currentDispositive.id, 'set'+this.capitalize(elem), [{ [elem]: data[elem] }] ));
+        keys.map( elem => executeDeviceAction(currentDispositive.id, elem, data.elem ));
     }
 
     onExit = () => {
@@ -73,6 +73,7 @@ class ConfigureDispositiveFormContainer extends Component {
             ...currentDispositive,
             name: data.name
         }
+        debugger;
         putDevice(newData.id, newData);
         this.executeFormActions(data);
         this.onExit();
@@ -80,6 +81,7 @@ class ConfigureDispositiveFormContainer extends Component {
     render() {
         const { currentDispositive } = this.props;
         const { isLoading, dispositiveState } = this.state;
+        const { status, ...initialValues} = dispositiveState;
         return (isLoading ? <h1>LOADING</h1> : (
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
@@ -90,7 +92,6 @@ class ConfigureDispositiveFormContainer extends Component {
                     dispositiveId ={currentDispositive.id}
                     onSubmit={this.handleSubmit}
                     actions={this.getDispositiveActions()}
-                    initialValues={{...dispositiveState}}
                     onExit={this.onExit}
                 />
             </div>

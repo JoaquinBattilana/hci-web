@@ -5,7 +5,7 @@ import Button from '../../../../../../components/Button';
 import styles from './styles.module.scss';
 import Options from '../Options';
 
-function ConfigureDispositiveForm({ dispositiveId, handleSubmit, actions, initialState, onExit, invalid, executeButtonAction }) {
+function ConfigureDispositiveForm({ dispositiveId, handleSubmit, actions, onExit, invalid, executeButtonAction }) {
     return(
         <form  className={styles.form} onSubmit={handleSubmit}>
             <Field

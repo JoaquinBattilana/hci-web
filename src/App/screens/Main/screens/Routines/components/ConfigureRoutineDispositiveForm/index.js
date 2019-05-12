@@ -23,17 +23,6 @@ class ConfigureRoutineDispositiveFormContainer extends Component {
         }));
     }
 
-    capitalize = s => {
-        if (typeof s !== 'string') return ''
-        return s.charAt(0).toUpperCase() + s.slice(1)
-    }
-
-    executeFormActions = data => {
-        const { currentDispositive } = this.props;
-        const keys = Object.keys(data);
-
-    }
-
     onExit = () => {
         const { setCurrentDispositive } = this.props;
         setCurrentDispositive(null);
@@ -42,10 +31,6 @@ class ConfigureRoutineDispositiveFormContainer extends Component {
     handleSubmit = data => {
         debugger;
         const { currentDispositive } = this.props;
-        const newData = {
-            ...currentDispositive,
-            name: data.name
-        }
         this.onExit();
     }
     render() {

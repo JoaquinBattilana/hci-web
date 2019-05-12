@@ -25,9 +25,11 @@ class Options extends Component {
                     param.type === "number") && 
                     !param.supportedValues){
                         if(param.minValue!==undefined){
+                            debugger;
                             return(
                                 <Field
-                                    name={param.name}
+                                    label={param.name}
+                                    name={action.name}
                                     component={SliderInput}
                                     min={parseInt(param.minValue)}
                                     max={parseInt(param.maxValue)}
@@ -36,7 +38,7 @@ class Options extends Component {
                         } else{
                             return(
                                 <Field
-                                    name={param.name}
+                                    name={action.name}
                                     label={param.name}
                                     component={CustomInput}
                                 />
@@ -51,7 +53,7 @@ class Options extends Component {
                     });
                     return(
                         <Field 
-                            name={param.name}
+                            name={action.name}
                             label={param.name}
                             elements={wrappedElements}
                             component={CustomSelect}

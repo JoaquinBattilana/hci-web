@@ -44,7 +44,8 @@ class AddRoutineFormContainer extends Component {
         const { onExit } = this.props;
         debugger;
         return(
-            <div className="demo-card-wide mdl-card mdl-shadow--2dp">
+            !currentDispositive ?
+            (<div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
                     <h2 className="mdl-card__title-text">Agregar rutina</h2>
                 </div>
@@ -55,12 +56,8 @@ class AddRoutineFormContainer extends Component {
                     {otherDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="add" handleClick={()=>this.addDispositiveToRoutine(elem)} />)}
                 </div>
                 <AddRoutineForm onExit={onExit}/>
-                {currentDispositive && (
-                    <div className={styles.all}>
-                        <ConfigureRoutineDispositiveFormContainer currentDispositive={currentDispositive} setCurrentDispositive={this.setCurrentDispositive}/>
-                    </div>)
-                }
-            </div>
+            </div>)
+            : <ConfigureRoutineDispositiveFormContainer currentDispositive={currentDispositive} setCurrentDispositive={this.setCurrentDispositive}/>
         );
     }
 }
