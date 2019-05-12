@@ -1,8 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Dispositive from '../../../../components/Dispositive';
 import dispositiveActions from '../../../../../redux/dipositives/actions';
 import { connect } from 'react-redux';
-import { DEVICES_ICONS } from '../../../../../constants/devices';
 import AddDispositiveForm from './components/AddDispositiveForm';
 import ConfigureDispositiveForm from './components/ConfigureDispositiveForm';
 import WithMainView from '../../components/WithMainView';
@@ -10,7 +9,7 @@ import WithMainView from '../../components/WithMainView';
 class Dispositives extends Component {
     
     componentDidMount = () => {
-        const { getDispositives, getDispositivesTypes } = this.props;
+        const { getDispositives, getDispositivesTypes, filterByRoom } = this.props;
         getDispositivesTypes();
         getDispositives();
     }
@@ -23,20 +22,12 @@ class Dispositives extends Component {
         return true;
     }
 
-    getIcon = dispositive => {
-        const { dispositivesType } = this.props;
-        if(!dispositivesType && dispositivesType.find(elem => dispositive.typeId === elem.id).name === "lamp") {
-            return DEVICES_ICONS['lamp'];
-        }
-    }
-
     render(){
         const { dispositives, setCurrentElement } = this.props;
         return dispositives.map(elem =>
             <Dispositive
                 dispositive={elem}
                 isToggable={this.isToggable(elem)}
-                icon={this.getIcon(elem)}
                 setCurrentDispositive={setCurrentElement}
             />);
     }

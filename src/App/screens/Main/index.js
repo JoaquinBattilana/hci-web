@@ -6,6 +6,7 @@ import Dispositives from './screens/Dispositives';
 import Rooms from './screens/Rooms';
 import Routines from './screens/Routines';
 import NotFound from './screens/NotFound';
+import RoomSelected from './screens/Rooms/screens/RoomSelected';
 
 function Main() {
     return (
@@ -16,9 +17,10 @@ function Main() {
         <main className="mdl-layout__content">
             <div className={`page-content`}>
                 <Switch>
-                    <Route path="/dispositives" component={Dispositives} />
-                    <Route path="/rooms" component={Rooms} />
-                    <Route path="/routines" component={Routines} />
+                    <Route exact path="/dispositives" component={Dispositives} />
+                    <Route exact path="/rooms" component={Rooms} />
+                    <Route exact path="/routines" component={Routines} />
+                    <Route path="/rooms/:id" render={(props) => < RoomSelected {...props}/>} />
                     <Route component={NotFound} />
                 </Switch>
             </div>

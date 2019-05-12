@@ -43,5 +43,3 @@ export const DEVICES_ICON_ID = {
     ["ofglvd9gqX8yfl3l"]: "access_alarm",
     ["rnizejqr2di0okho"]: "kitchen",
 }
-
-export default DEVICES;
