@@ -21,7 +21,6 @@ class RoutineDispositive extends Component {
 
     render() {
         const { dispositive, handleClick, icon } = this.props;
-        debugger;
         return(
             <div className={`mdl-data-table__cell--non-numeric ${styles.routine}`}>
                 <i className={`material-icons ${styles.icon}`}>highlight</i>

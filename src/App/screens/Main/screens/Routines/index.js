@@ -20,7 +20,6 @@ class Routines extends Component {
 
     render() {
         const { routines } = this.state;
-        debugger;
         return routines.map(elem => <Routine routine={elem} />);
     }
 }

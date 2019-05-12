@@ -4,12 +4,13 @@ import DevicesService from '../../../../../../../services/DevicesService';
 import RoutinesService from '../../../../../../../services/RoutinesService';
 import AddRoutineForm from './layout';
 import styles from './styles.module.scss';
+import ConfigureRoutineDispositiveFormContainer from '../ConfigureRoutineDispositiveForm';
 
 class AddRoutineFormContainer extends Component {
     state = {
         addedDispositives: [],
         otherDispositives: [],
-        currentDispositive: {},
+        currentDispositive: null,
         actions: []
     }
 
@@ -35,24 +36,26 @@ class AddRoutineFormContainer extends Component {
     }
 
     handleSubmit = data => {
-        RoutinesService.postRoutine();
+        RoutinesService.postRoutine(data.name);
     }
 
     render() {
-        const { addedDispositives, otherDispositives } = this.state;
+        const { addedDispositives, otherDispositives, currentDispositive } = this.state;
+        const { onExit } = this.props;
         debugger;
         return(
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
                     <h2 className="mdl-card__title-text">Agregar rutina</h2>
                 </div>
-                <AddRoutineForm />
                 <div className={styles.addDispositives}>
                     <p> Dispositivos agregados:</p>
                     {addedDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="build" handleClick={()=>this.setCurrentDispositive(elem)}/>)}
                     <p> Dispositivos no agregados: </p>
                     {otherDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="add" handleClick={()=>this.addDispositiveToRoutine(elem)} />)}
                 </div>
+                <AddRoutineForm onExit={onExit}/>
+                {currentDispositive && <ConfigureRoutineDispositiveFormContainer currentDispositive={currentDispositive} setCurrentDispositive={this.setCurrentDispositive}/>}
             </div>
         );
     }
