@@ -9,7 +9,7 @@ class AddRoomFormContainer extends Component {
         const newData = {
             name: data.name,
         };
-        const { postRoom } = this.props;
+        const { postRoom, onExit } = this.props;
         postRoom(newData);
         onExit();
     }

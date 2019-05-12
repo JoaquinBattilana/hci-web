@@ -22,8 +22,8 @@ function Main() {
         <main class="mdl-layout__content">
             <div class={`page-content`}>
                 <Switch>
-                    <Route path="/dispositives" render={() => <WithMainView Elements={Dispositives} AddForm={AddDispositiveForm} ConfigureForm={ConfigureDispositiveForm} title="Dispositivos"/>} />
-                    <Route path="/rooms" render={() => <WithMainView Elements={Rooms} AddForm={AddRoomForm} title="Habitaciones" />} />
+                    <Route path="/dispositives" component={Dispositives} />
+                    <Route path="/rooms" component={Rooms} />
                     <Route path="/routines" component={Routines} />
                     <Route path="/button" component={SwitchButton} />
                     <Route component={NotFound} />

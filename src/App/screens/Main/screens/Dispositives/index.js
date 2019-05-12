@@ -3,6 +3,9 @@ import Dispositive from '../../../../components/Dispositive';
 import dispositiveActions from '../../../../../redux/dipositives/actions';
 import { connect } from 'react-redux';
 import { DEVICES_ICONS } from '../../../../../constants/devices';
+import AddDispositiveForm from './components/AddDispositiveForm';
+import ConfigureDispositiveForm from './components/ConfigureDispositiveForm';
+import WithMainView from '../../components/WithMainView';
 
 class Dispositives extends Component {
     
@@ -52,4 +55,4 @@ const mapDispatchToProps = dispatch => ({
     getDispositives: () => dispatch(dispositiveActions.getDispositives())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dispositives);
+export default WithMainView((connect(mapStateToProps, mapDispatchToProps)(Dispositives)), AddDispositiveForm, ConfigureDispositiveForm, "Dispositivos");
