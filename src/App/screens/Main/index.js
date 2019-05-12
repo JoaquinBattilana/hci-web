@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './styles.module.scss';
 import TopBar from './components/TopBar';
 import SideBar from './components/SideBar';
 import { Route, Switch } from 'react-router';
@@ -7,11 +6,6 @@ import Dispositives from './screens/Dispositives';
 import Rooms from './screens/Rooms';
 import Routines from './screens/Routines';
 import NotFound from './screens/NotFound';
-import SwitchButton from '../../components/SwitchButton';
-import WithMainView from './components/WithMainView';
-import AddDispositiveForm from './screens/Dispositives/components/AddDispositiveForm';
-import ConfigureDispositiveForm from './screens/Dispositives/components/ConfigureDispositiveForm';
-import AddRoomForm from './screens/Rooms/components/AddRoomForm';
 
 function Main() {
     return (
@@ -25,7 +19,6 @@ function Main() {
                     <Route path="/dispositives" component={Dispositives} />
                     <Route path="/rooms" component={Rooms} />
                     <Route path="/routines" component={Routines} />
-                    <Route path="/button" component={SwitchButton} />
                     <Route component={NotFound} />
                 </Switch>
             </div>

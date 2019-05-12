@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Room from './components/Room';
 import { connect } from 'react-redux';
 import roomsActions from '../../../../../redux/rooms/actions';
+import WithMainView from '../../components/WithMainView';
+import AddRoomForm from './components/AddRoomForm';
 
 class Rooms extends Component {
 
@@ -24,4 +26,4 @@ const mapDispatchToProps = dispatch => ({
     getRooms: () => dispatch(roomsActions.getRooms())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Rooms);
+export default WithMainView(connect(mapStateToProps, mapDispatchToProps)(Rooms), AddRoomForm, null, "Habitaciones");
