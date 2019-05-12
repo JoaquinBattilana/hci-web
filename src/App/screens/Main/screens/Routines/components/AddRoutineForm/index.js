@@ -50,7 +50,7 @@ class AddRoutineFormContainer extends Component {
                 </div>
                 <div className={styles.addDispositives}>
                     <p> Dispositivos agregados:</p>
-                    {addedDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="build" handleClick={()=>this.setCurrentDispositive(elem)}/>)}
+                    {addedDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="settings" handleClick={()=>this.setCurrentDispositive(elem)}/>)}
                     <p> Dispositivos no agregados: </p>
                     {otherDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="add" handleClick={()=>this.addDispositiveToRoutine(elem)} />)}
                 </div>

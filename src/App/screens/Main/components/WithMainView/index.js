@@ -25,8 +25,8 @@ const WithMainView = (Elements, AddForm, DataComponent, title) =>{
                 const { addFormState, currentElement } = this.state;
                 return (
                 <div className={styles.mainViewLayout}>
-                    {addFormState && <AddForm onExit={this.toggleAddForm}/>}
-                    {currentElement && <DataComponent setCurrentElement={this.setCurrentElement} currentDispositive={currentElement} />}
+                    {addFormState && <div className={styles.all}><AddForm onExit={this.toggleAddForm}/> </div>}
+                    {currentElement && <div className={styles.all}><DataComponent setCurrentElement={this.setCurrentElement} currentDispositive={currentElement} /> </div>}
                     <h2 className={styles.title}>{title}</h2>
                     <Elements setCurrentElement={this.setCurrentElement}/>
                     <Button icon="add" iconType="fab" handleClick={this.toggleAddForm} />
