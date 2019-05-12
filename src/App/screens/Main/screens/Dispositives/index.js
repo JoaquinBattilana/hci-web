@@ -54,4 +54,4 @@ const mapDispatchToProps = dispatch => ({
     getDispositives: () => dispatch(dispositiveActions.getDispositives())
 });
 
-export default WithMainView((connect(mapStateToProps, mapDispatchToProps)(Dispositives)), AddDispositiveForm, ConfigureDispositiveForm, "Dispositivos");
+export default WithMainView((connect(mapStateToProps, mapDispatchToProps)(Dispositives)), AddDispositiveForm, ConfigureDispositiveForm, "Dispositives");

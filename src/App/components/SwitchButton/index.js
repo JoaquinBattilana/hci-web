@@ -33,8 +33,8 @@ class SwitchButton extends Component {
         return(
             <div className={`${className} ${styles.labels}`}>
                 <div className={styles.notSelectedLabel}>{notSelectedLabel}</div>
-                <label class="mdl-switch mdl-js-switch">
-                    <input type="checkbox" class="mdl-switch__input" onChange={this.handleChange} />
+                <label className="mdl-switch mdl-js-switch">
+                    <input type="checkbox" className="mdl-switch__input" onChange={this.handleChange} />
                 </label>
                 <div className={styles.selectedLabel}>{selectedLabel}</div>
             </div>

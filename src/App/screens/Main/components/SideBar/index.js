@@ -4,28 +4,28 @@ import { NavLink } from 'react-router-dom';
 function SideBar() {
     return(
         <div className="mdl-layout__drawer">
-        <span className="mdl-layout-title">Title</span>
+        <span className="mdl-layout-title">Smart Home</span>
             <nav className="mdl-navigation">
                 <NavLink
                     className="mdl-navigation__link"
                     activeClassName="mdl-navigation__link--current"
                     to="/dispositives"
                 >
-                    Dispositivos
+                    Dispositives
                 </NavLink>
                 <NavLink
                     className="mdl-navigation__link"
                     activeClassName="mdl-navigation__link--current"
                     to="/rooms"
                 >
-                    Habitaciones
+                    Rooms
                 </NavLink>
                 <NavLink
                     className="mdl-navigation__link"
                     activeClassName="mdl-navigation__link--current"
                     to="/routines"
                 >
-                    Rutinas
+                    Routines
                 </NavLink>
             </nav>
         </div>

@@ -23,4 +23,4 @@ class Routines extends Component {
     }
 }
 
-export default WithMainView(Routines, AddRoutineFormContainer, null, "Rutinas");
+export default WithMainView(Routines, AddRoutineFormContainer, null, "Routines");

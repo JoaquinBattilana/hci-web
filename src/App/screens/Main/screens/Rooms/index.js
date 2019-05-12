@@ -26,4 +26,4 @@ const mapDispatchToProps = dispatch => ({
     getRooms: () => dispatch(roomsActions.getRooms())
 });
 
-export default WithMainView(connect(mapStateToProps, mapDispatchToProps)(Rooms), AddRoomForm, null, "Habitaciones");
+export default WithMainView(connect(mapStateToProps, mapDispatchToProps)(Rooms), AddRoomForm, null, "Rooms");
