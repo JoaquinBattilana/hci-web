@@ -24,5 +24,3 @@ class Routine extends Component {
 }
 
 export default Routine;
-{
-}

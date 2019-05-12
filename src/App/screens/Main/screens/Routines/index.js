@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import WithMainView from '../../components/WithMainView';
-import AddRoutineFormContainer from './components/Routine/AddRoutineForm';
+import AddRoutineFormContainer from './components/AddRoutineForm';
+import RoutinesService from '../../../../../services/RoutinesService';
+import Routine from './components/Routine';
 
 class Routines extends Component {
+    state = {
+        routines: []
+    }
+
+    componentDidMount = () => {
+        RoutinesService.getRoutines().then(response => {
+            this.setState(({
+                routines: response.data.routines
+            }));
+        });
+    }
+
     render() {
-        return <AddRoutineFormContainer />;
+        const { routines } = this.state;
+        debugger;
+        return routines.map(elem => <Routine routine={elem} />);
     }
 }
 
-export default WithMainView(Routines, null, null, "Rutinas");
+export default WithMainView(Routines, AddRoutineFormContainer, null, "Rutinas");

@@ -14,7 +14,7 @@ function ConfigureDispositiveForm({ dispositiveId, handleSubmit, actions, initia
                 type="text"
                 component={CustomInput}
             />
-            <Options actions={actions} initialState={initialState} executeButtonAction={executeButtonAction} dispositiveId={dispositiveId} />
+            <Options actions={actions}  executeButtonAction={executeButtonAction} dispositiveId={dispositiveId} />
             <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
                 <Button type="button" iconType="raised" label={"SALIR"} handleClick={onExit} />
                 <Button type="submit" iconType="raised" disable={invalid} label={"ADD"} />

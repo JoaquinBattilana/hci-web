@@ -1,0 +1,19 @@
+.routine {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+    min-width: 40%;
+
+    .icon {
+        margin-right: 5%;
+    }
+
+    .switch {
+        margin-right: 5%;
+    }
+
+    .name {
+        margin-right: auto;
+    }
+}
