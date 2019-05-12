@@ -32,7 +32,6 @@ class Dispositives extends Component {
 
     render(){
         const { dispositives, setCurrentElement } = this.props;
-        debugger;
         return dispositives.map(elem =>
             <Dispositive
                 dispositive={elem}

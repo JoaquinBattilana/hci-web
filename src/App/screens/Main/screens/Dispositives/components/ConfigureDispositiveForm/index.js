@@ -20,7 +20,6 @@ class ConfigureDispositiveFormContainer extends Component {
     }
 
     getDispositiveState = async () => {
-        debugger;
         const { currentDispositive } = this.props;
         if(!currentDispositive) {
             return null;
@@ -28,7 +27,6 @@ class ConfigureDispositiveFormContainer extends Component {
         this.setState({isLoading: true});
         const response = await devices.executeDeviceAction(currentDispositive.id, "getState");
         if(response.ok){
-            debugger;
             this.setState({
                 dispositiveState: {
                     name: currentDispositive.name,
@@ -80,10 +78,8 @@ class ConfigureDispositiveFormContainer extends Component {
         this.onExit();
     }
     render() {
-        debugger;
         const { currentDispositive } = this.props;
         const { isLoading, dispositiveState } = this.state;
-        debugger;
         return (isLoading ? <h1>LOADING</h1> : (
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">

@@ -13,8 +13,8 @@ class Rooms extends Component {
     }
 
     render(){
-        const { rooms } = this.props;
-        return rooms.map(elem => <Room room={elem}/>);
+        const { rooms, setCurrentElement } = this.props;
+        return rooms.map(elem => <Room room={elem} onAsociatedClick={setCurrentElement}/>);
     }
 }
 
