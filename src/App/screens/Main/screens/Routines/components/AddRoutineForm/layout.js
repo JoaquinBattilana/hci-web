@@ -6,7 +6,7 @@ import styles from './styles.module.scss'
 
 function AddRoutineForm({ handleSubmit, onExit, invalid }) {
     return(
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <Field 
                 name="name"
                 label="name"

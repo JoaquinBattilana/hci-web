@@ -1,0 +1,12 @@
+.labels {
+    align-items: center;
+    display: flex;
+
+    .selected-label {
+        margin-left: 18px;
+    }
+    
+    .not-selected-label {
+        margin-right: 10px;
+    }
+}

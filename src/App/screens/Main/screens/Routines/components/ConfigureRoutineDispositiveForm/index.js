@@ -40,6 +40,7 @@ class ConfigureRoutineDispositiveFormContainer extends Component {
     }
 
     handleSubmit = data => {
+        debugger;
         const { currentDispositive } = this.props;
         const newData = {
             ...currentDispositive,

@@ -9,8 +9,8 @@ function ConfigureDispositiveForm({ dispositiveId, handleSubmit, actions, onExit
         <form  className={styles.form} onSubmit={handleSubmit}>
             <Options actions={actions}  dispositiveId={dispositiveId} />
             <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
-                <Button type="button" iconType="raised" label={"SALIR"} handleClick={onExit} />
-                <Button type="submit" iconType="raised" disable={invalid} label={"ADD"} />
+                <Button type="button" iconType="raised" label={"CANCEL"} handleClick={onExit} />
+                <Button type="submit" iconType="raised" disable={invalid} label={"ACCEPT"} />
             </div>
         </form>
     );
