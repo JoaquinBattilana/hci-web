@@ -18,3 +18,14 @@
     display: flex;
     flex-direction: column;
 }
+
+.all {
+    background:rgba(255,255,255,0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000000000;
+}

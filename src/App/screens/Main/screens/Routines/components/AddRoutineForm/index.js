@@ -55,7 +55,11 @@ class AddRoutineFormContainer extends Component {
                     {otherDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="add" handleClick={()=>this.addDispositiveToRoutine(elem)} />)}
                 </div>
                 <AddRoutineForm onExit={onExit}/>
-                {currentDispositive && <ConfigureRoutineDispositiveFormContainer currentDispositive={currentDispositive} setCurrentDispositive={this.setCurrentDispositive}/>}
+                {currentDispositive && (
+                    <div className={styles.all}>
+                        <ConfigureRoutineDispositiveFormContainer currentDispositive={currentDispositive} setCurrentDispositive={this.setCurrentDispositive}/>
+                    </div>)
+                }
             </div>
         );
     }
