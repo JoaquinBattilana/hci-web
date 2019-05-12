@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import dispositiveActions from '../../../redux/dipositives/actions';
 import SwitchButton from '../SwitchButton';
 import Button from '../Button';
+import DevicesService from '../../../services/DevicesService';
 
 class Dispositive extends Component {
     componentDidMount = () => {
@@ -20,13 +21,23 @@ class Dispositive extends Component {
         onDeleteClick( dispositive.id );
     }
 
+    executeOn = () => {
+        const { dispositive } = this.props;
+        DevicesService.executeDeviceAction(dispositive.id, "turnOn");
+    }
+
+    executeOff = () => {
+        const { dispositive } = this.props;
+        DevicesService.executeDeviceAction(dispositive.id, "turnOff");
+    }
+
     render() {
         const { dispositive, isToggable } = this.props; 
         return(
             <div className={`mdl-data-table__cell--non-numeric ${styles.dispositive}`}>
                 <i className={`material-icons ${styles.icon}`}>highlight</i>
                 <div className={styles.name}>{dispositive.name}</div>
-                {isToggable && <SwitchButton className={styles.switch} />}
+                {isToggable && <SwitchButton handleOn={this.executeOn} handleOff={this.executeOff} className={styles.switch} />}
                 <Button handleClick={this.onConfigClickHandler} icon="settings" iconType="icon" />
                 <Button handleClick={this.onDeleteClickHandler} icon="delete" iconType="icon" />
             </div>
