@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import Button from '../../../../../../components/Button';
+import RoutinesService from '../../../../../../../services/RoutinesService';
 
 class Routine extends Component {
 
@@ -9,6 +10,8 @@ class Routine extends Component {
     }
 
     onClickHandler = () => {
+        const { routine } = this.props;
+        RoutinesService.executeRoutine(routine.id);
     }
 
     render() {
