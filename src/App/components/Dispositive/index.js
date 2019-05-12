@@ -5,6 +5,7 @@ import dispositiveActions from '../../../redux/dipositives/actions';
 import SwitchButton from '../SwitchButton';
 import Button from '../Button';
 import DevicesService from '../../../services/DevicesService';
+import { DEVICES_ICON_ID } from '../../../constants/devices';
 
 class Dispositive extends Component {
     componentDidMount = () => {
@@ -35,7 +36,7 @@ class Dispositive extends Component {
         const { dispositive, isToggable } = this.props; 
         return(
             <div className={`mdl-data-table__cell--non-numeric ${styles.dispositive}`}>
-                <i className={`material-icons ${styles.icon}`}>highlight</i>
+                <i className={`material-icons ${styles.icon}`}>{DEVICES_ICON_ID[dispositive.typeId]}</i>
                 <div className={styles.name}>{dispositive.name}</div>
                 {isToggable && <SwitchButton handleOn={this.executeOn} handleOff={this.executeOff} className={styles.switch} />}
                 <Button handleClick={this.onConfigClickHandler} icon="settings" iconType="icon" />

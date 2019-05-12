@@ -11,7 +11,7 @@ const devices = {
 };
 */
 
-const DEVICES = [
+export const DEVICES = [
     {name:"blinds", id: "eu0v2xgprrhhg41g"},
     {name: "lamp", id: "go46xmbqeomjrsjr" },
     { name: "oven", id: "im77xxyulpegfmv8" },
@@ -31,6 +31,17 @@ export const DEVICES_ICONS = {
     alarm: "lock",
     timer: "access_alarm",
     refrigerator: "kitchen"
+}
+
+export const DEVICES_ICON_ID = {
+    ["eu0v2xgprrhhg41g"]: "format_align_justify",
+    ["go46xmbqeomjrsjr"]: "highlight",
+    ["im77xxyulpegfmv8"]: "restaurant",
+    ["li6cbv5sdlatti0j"]: "ac_unit",
+    ["lsf78ly0eqrjbz91"]: "meeting_room", 
+    ["mxztsyjzsrq7iaqc"]: "lock",
+    ["ofglvd9gqX8yfl3l"]: "access_alarm",
+    ["rnizejqr2di0okho"]: "kitchen",
 }
 
 export default DEVICES;
