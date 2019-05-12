@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import Button from '../../../../../../components/Button';
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
 class Room extends Component {
 
@@ -9,8 +11,8 @@ class Room extends Component {
     }
 
     onClickHandler = () => {
-        const { room, onAsociatedClick} = this.props;
-        onAsociatedClick(room);
+        const { room } = this.props;
+        this.props.push('/rooms/'+room.id);
     }
 
     render() {
@@ -25,4 +27,4 @@ class Room extends Component {
     }
 }
 
-export default Room;
+export default connect(null, { push } )(Room);

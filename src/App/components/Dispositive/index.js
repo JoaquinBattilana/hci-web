@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
-import { connect } from 'react-redux';
-import dispositiveActions from '../../../redux/dipositives/actions';
 import SwitchButton from '../SwitchButton';
 import Button from '../Button';
 import DevicesService from '../../../services/DevicesService';
@@ -18,8 +16,8 @@ class Dispositive extends Component {
     }
     
     onDeleteClickHandler = () => {
-        const { dispositive, onDeleteClick } = this.props
-        onDeleteClick( dispositive.id );
+        const { dispositive } = this.props
+        DevicesService.deleteDevice(dispositive.id);
     }
 
     executeOn = () => {
@@ -46,8 +44,5 @@ class Dispositive extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    onDeleteClick: id => dispatch(dispositiveActions.deleteDispositive(id))
-});
 
-export default connect(null, mapDispatchToProps)(Dispositive);
+export default Dispositive;

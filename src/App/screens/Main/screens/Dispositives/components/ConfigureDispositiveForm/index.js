@@ -3,16 +3,20 @@ import ConfigureDispositiveForm from './layout';
 import { connect } from 'react-redux';
 import dispositiveActions from '../../../../../../../redux/dipositives/actions';
 import devices from '../../../../../../../services/DevicesService';
+import DevicesService from '../../../../../../../services/DevicesService';
 
 class ConfigureDispositiveFormContainer extends Component {
 
     state = {
         dispositiveState: {},
-        isLoading: false
+        isLoading: false,
+        error: null,
+        dispositivesTypes: []
     }
 
     componentDidMount = () => {
         this.getDispositiveState();
+        DevicesService.getDevicesTypes().then(response => this.setState(({dispositivesTypes: response.data.devices})));
     }
 
     componentDidUpdate = () => {
@@ -38,17 +42,13 @@ class ConfigureDispositiveFormContainer extends Component {
     }
 
     getDispositiveActions = () => {
-        const { currentDispositive, dispositivesType } = this.props;
-        if(!currentDispositive){
+        const { currentDispositive } = this.props;
+        const { dispositivesTypes, isLoading, error } = this.state;
+        if(dispositivesTypes.length === 0){
             return null;
         }
-        const currentDispositiveType = dispositivesType.find(elem => elem.id === currentDispositive.typeId);
+        const currentDispositiveType = dispositivesTypes.find(elem => elem.id === currentDispositive.typeId);
         return currentDispositiveType.actions;
-    }
-
-    capitalize = s => {
-        if (typeof s !== 'string') return ''
-        return s.charAt(0).toUpperCase() + s.slice(1)
     }
 
     executeButtonAction = (deviceId, action) => {

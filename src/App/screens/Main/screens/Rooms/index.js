@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import roomsActions from '../../../../../redux/rooms/actions';
 import WithMainView from '../../components/WithMainView';
 import AddRoomForm from './components/AddRoomForm';
+import { push } from 'connected-react-router';
 
 class Rooms extends Component {
 
@@ -13,8 +14,8 @@ class Rooms extends Component {
     }
 
     render(){
-        const { rooms, setCurrentElement } = this.props;
-        return rooms.map(elem => <Room room={elem} onAsociatedClick={setCurrentElement}/>);
+        const { rooms } = this.props;
+        return rooms.map(elem => <Room room={elem} />);
     }
 }
 

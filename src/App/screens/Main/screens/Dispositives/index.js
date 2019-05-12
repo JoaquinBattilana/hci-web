@@ -1,29 +1,43 @@
 import React, { Component } from 'react';
 import Dispositive from '../../../../components/Dispositive';
-import dispositiveActions from '../../../../../redux/dipositives/actions';
-import { connect } from 'react-redux';
 import AddDispositiveForm from './components/AddDispositiveForm';
 import ConfigureDispositiveForm from './components/ConfigureDispositiveForm';
 import WithMainView from '../../components/WithMainView';
+import DevicesService from '../../../../../services/DevicesService';
 
 class Dispositives extends Component {
+
+    state = {
+        isLoading: false,
+        error: null,
+        dispositives: [],
+        dispositivesTypes: []
+    }
     
     componentDidMount = () => {
-        const { getDispositives, getDispositivesTypes, filterByRoom } = this.props;
-        getDispositivesTypes();
-        getDispositives();
+        this.setState(({isLoading: true}));
+        DevicesService.getDevicesTypes()
+            .then(response => {
+                this.setState(({dispositivesTypes: response.data.devices}));
+                return DevicesService.getDevices();
+            })
+            .then(response => this.setState(({
+                dispositives: response.data.devices,
+                isLoading: false
+            })));
     }
 
     isToggable = dispositive => {
-        const { dispositivesType } = this.props;
-        if(!dispositivesType && dispositivesType.find(elem => dispositive.typeId === elem.id).name === "refrigerator") {
+        const { dispositivesTypes } = this.state;
+        if(dispositivesTypes.find(elem => dispositive.typeId === elem.id).name === "refrigerator") {
             return false;
         }
         return true;
     }
 
     render(){
-        const { dispositives, setCurrentElement } = this.props;
+        const { setCurrentElement } = this.props;
+        const { dispositives } = this.state;
         return dispositives.map(elem =>
             <Dispositive
                 dispositive={elem}
@@ -33,16 +47,4 @@ class Dispositives extends Component {
     }
 }
 
-const mapStateToProps = ({ dispositives: { dispositivesType, dispositives, isLoading, hasError}}) => ({
-    dispositivesType,
-    dispositives,
-    hasError,
-    isLoading
-});
-
-const mapDispatchToProps = dispatch => ({
-    getDispositivesTypes: () => dispatch(dispositiveActions.getDispositivesTypes()),
-    getDispositives: () => dispatch(dispositiveActions.getDispositives())
-});
-
-export default WithMainView((connect(mapStateToProps, mapDispatchToProps)(Dispositives)), AddDispositiveForm, ConfigureDispositiveForm, "Dispositives");
+export default WithMainView(Dispositives, AddDispositiveForm, ConfigureDispositiveForm, "Dispositives");
