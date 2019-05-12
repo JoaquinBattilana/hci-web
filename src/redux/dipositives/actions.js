@@ -82,6 +82,7 @@ const actionCreators = {
         const response = await dispositives.putDevice(deviceId, data);
         if (response.ok) {
             dispatch({ type: actions.PUT_DISPOSITIVE_SUCESS });
+            dispatch(actionCreators.getDispositives());
         } else {
             dispatch({ type: actions.PUT_DISPOSITIVE_FAIL})
         }

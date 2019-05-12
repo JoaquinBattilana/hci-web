@@ -11,6 +11,7 @@ import SwitchButton from '../../components/SwitchButton';
 import WithMainView from './components/WithMainView';
 import AddDispositiveForm from './screens/Dispositives/components/AddDispositiveForm';
 import ConfigureDispositiveForm from './screens/Dispositives/components/ConfigureDispositiveForm';
+import AddRoomForm from './screens/Rooms/components/AddRoomForm';
 
 function Main() {
     return (
@@ -22,7 +23,7 @@ function Main() {
             <div class={`page-content`}>
                 <Switch>
                     <Route path="/dispositives" render={() => <WithMainView Elements={Dispositives} AddForm={AddDispositiveForm} ConfigureForm={ConfigureDispositiveForm} title="Dispositivos"/>} />
-                    <Route path="/rooms" component={Rooms} />
+                    <Route path="/rooms" render={() => <WithMainView Elements={Rooms} AddForm={AddRoomForm} title="Habitaciones" />} />
                     <Route path="/routines" component={Routines} />
                     <Route path="/button" component={SwitchButton} />
                     <Route component={NotFound} />

@@ -77,6 +77,7 @@ class ConfigureDispositiveFormContainer extends Component {
         }
         putDevice(newData.id, newData);
         this.executeFormActions(data);
+        this.onExit();
     }
     render() {
         debugger;
