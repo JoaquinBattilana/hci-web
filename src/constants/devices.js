@@ -23,7 +23,14 @@ const DEVICES = [
 ];
 
 export const DEVICES_ICONS = {
-    lemp: "highlight"
+    blinds: "format_align_justify",
+    lamp: "highlight",
+    oven: "restaurant",
+    ac: "ac_unit",
+    door: "meeting_room",
+    alarm: "lock",
+    timer: "access_alarm",
+    refrigerator: "kitchen"
 }
 
 export default DEVICES;
