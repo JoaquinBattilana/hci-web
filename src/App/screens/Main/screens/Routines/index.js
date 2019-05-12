@@ -3,7 +3,6 @@ import WithMainView from '../../components/WithMainView';
 import AddRoutineFormContainer from './components/AddRoutineForm';
 import RoutinesService from '../../../../../services/RoutinesService';
 import Routine from './components/Routine';
-import ConfigureRoutineDispositiveFormContainer from './components/ConfigureRoutineDispositiveForm';
 
 class Routines extends Component {
     state = {

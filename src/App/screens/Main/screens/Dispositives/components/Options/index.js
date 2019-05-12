@@ -25,7 +25,6 @@ class Options extends Component {
                     param.type === "number") && 
                     !param.supportedValues){
                         if(param.minValue!==undefined){
-                            debugger;
                             return(
                                 <Field
                                     label={param.name}

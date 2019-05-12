@@ -15,6 +15,7 @@ class AddRoutineFormContainer extends Component {
     }
 
     componentDidMount = () => {
+        debugger;
         DevicesService.getDevices().then( response => this.setState({otherDispositives: response.data.devices}));
     }
 
@@ -36,13 +37,26 @@ class AddRoutineFormContainer extends Component {
     }
 
     handleSubmit = data => {
-        RoutinesService.postRoutine(data.name);
+        const { onExit } = this.props;
+        const { actions } = this.state;
+        const newData = {
+            name: data.name,
+            actions
+        }
+        debugger;
+        RoutinesService.postRoutine(newData);
+        onExit();
+    }
+
+    addAction = action => {
+        this.setState(state =>({
+            actions: state.actions.concat(action)
+        }));
     }
 
     render() {
         const { addedDispositives, otherDispositives, currentDispositive } = this.state;
         const { onExit } = this.props;
-        debugger;
         return(
             !currentDispositive ?
             (<div className="demo-card-wide mdl-card mdl-shadow--2dp">
@@ -55,9 +69,9 @@ class AddRoutineFormContainer extends Component {
                     <p> Dispositivos no agregados: </p>
                     {otherDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="add" handleClick={()=>this.addDispositiveToRoutine(elem)} />)}
                 </div>
-                <AddRoutineForm onExit={onExit}/>
+                <AddRoutineForm onSubmit={this.handleSubmit} onExit={onExit}/>
             </div>)
-            : <ConfigureRoutineDispositiveFormContainer currentDispositive={currentDispositive} setCurrentDispositive={this.setCurrentDispositive}/>
+            : <ConfigureRoutineDispositiveFormContainer currentDispositive={currentDispositive} setCurrentDispositive={this.setCurrentDispositive} addAction={this.addAction}/>
         );
     }
 }

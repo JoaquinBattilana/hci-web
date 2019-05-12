@@ -7,7 +7,7 @@ class ConfigureRoutineDispositiveFormContainer extends Component {
     state = {
         dispositiveState: {},
         isLoading: false,
-        dispotiveActions: []
+        dispositiveActions: []
     }
 
     componentDidUpdate = () => {
@@ -29,14 +29,20 @@ class ConfigureRoutineDispositiveFormContainer extends Component {
     }
 
     handleSubmit = data => {
-        debugger;
-        const { currentDispositive } = this.props;
+        const { currentDispositive, addAction } = this.props;
+        const keys = Object.keys(data);
+        const newData = keys.map(elem => ({
+            deviceId: currentDispositive.id,
+            actionName: elem,
+            params: [data[elem]],
+            meta: null
+        }));
+        newData.map(elem => addAction(elem));
         this.onExit();
     }
     render() {
         const { currentDispositive } = this.props;
         const { isLoading, dispositiveActions } = this.state;
-        debugger;
         return (isLoading ? <h1>LOADING</h1> : (
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
