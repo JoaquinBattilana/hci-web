@@ -5,6 +5,7 @@ import roomsActions from '../../../../../redux/rooms/actions';
 import WithMainView from '../../components/WithMainView';
 import AddRoomForm from './components/AddRoomForm';
 import { push } from 'connected-react-router';
+import { toast } from 'react-toastify';
 
 class Rooms extends Component {
 

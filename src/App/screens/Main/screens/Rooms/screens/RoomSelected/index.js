@@ -48,7 +48,7 @@ class RoomSelected extends Component {
     render() {
         const { addFormState, currentDispositive, roomSelected, dispositives } = this.state;
         return (
-            <div className={styles.roomSelectedLayout}>
+            <div className={styles.roomsSelectedLayout}>
                 {addFormState && <div className={styles.all}><AddRoomDispositiveForm onExit={this.toggleAddForm} room={roomSelected}/> </div>}
                 {currentDispositive && <div className={styles.all}><ConfigureDispositiveForm setCurrentElement={this.setCurrentElement} currentDispositive={currentDispositive} /> </div>}
                 <h2 className={styles.title}>Dispositivos de habitacion</h2>

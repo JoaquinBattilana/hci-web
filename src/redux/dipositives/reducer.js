@@ -15,7 +15,7 @@ function reducer(state=initialState, action) {
                 ...state,
                 isLoading: true
             });
-        case actions.POST_DISPOSITIVE_ROOM_SUCESS:
+        case actions.POST_DISPOSITIVE_ROOM_SUCCESS:
             return({
                 ...state,
                 isLoading: false,
@@ -32,7 +32,7 @@ function reducer(state=initialState, action) {
                 ...state,
                 isLoading: true
             });
-        case actions.GET_DISPOSITIVES_TYPES_SUCESS:
+        case actions.GET_DISPOSITIVES_TYPES_SUCCESS:
             return({
                 ...state,
                 isLoading: false,
@@ -50,7 +50,7 @@ function reducer(state=initialState, action) {
                 ...state,
                 isLoading: true
             });
-        case actions.GET_DISPOSITIVES_SUCESS:
+        case actions.GET_DISPOSITIVES_SUCCESS:
             return({
                 ...state,
                 dispositives: [...action.payload],
@@ -68,7 +68,7 @@ function reducer(state=initialState, action) {
                 ...state,
                 isLoading: true,
             });
-        case actions.PUT_DISPOSITIVE_SUCESS:
+        case actions.PUT_DISPOSITIVE_SUCCESS:
             return({
                 ...state,
                 isLoading: false,
@@ -85,7 +85,7 @@ function reducer(state=initialState, action) {
                 ...state,
                 isLoading: true
             });
-        case actions.DELETE_DISPOSITIVE_SUCESS:
+        case actions.DELETE_DISPOSITIVE_SUCCESS:
             return({
                 ...state,
                 isLoading: false,

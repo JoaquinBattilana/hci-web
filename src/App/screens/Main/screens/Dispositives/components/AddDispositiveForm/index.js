@@ -3,6 +3,7 @@ import AddDispositiveForm from './layout';
 import { SubmissionError } from 'redux-form';
 import DevicesService from '../../../../../../../services/DevicesService';
 import RoomsService from '../../../../../../../services/RoomsService';
+import { toast, ToastContainer } from 'react-toastify';
 
 class AddDispositiveFormContainer extends Component {
 
@@ -28,7 +29,7 @@ class AddDispositiveFormContainer extends Component {
 
     handleSubmit = data => {
         if(data.type === undefined || data.name === undefined){
-            throw new SubmissionError( {type: "Ningun tipo fue especificado", name: "El dispositivo tiene que tener un nombre"});
+            throw new SubmissionError( {type: "Is required", name: "Is required"});
         } 
         const { onExit } = this.props;
         const { dispositivesTypes } = this.state;
@@ -36,7 +37,25 @@ class AddDispositiveFormContainer extends Component {
             typeId: dispositivesTypes.find(elem => elem.id === data.type).id,
             name: data.name,
         };
-        DevicesService.postDevice(readyData).then(response => DevicesService.postDeviceRoom(response.data.device.id, data.room));
+        DevicesService.postDevice(readyData).then(response =>{
+            if(response.ok) {
+                if(data.room===undefined){
+                    toast("Device was added");
+                }
+                else { 
+                    DevicesService.postDeviceRoom(response.data.device.id, data.room).then( response =>{
+                        if(response.ok){
+                            toast("Device was added");
+                        } else {
+                            toast.error(response.data.error.description[0])
+                        }
+                    }).catch(error => toast.error(error));
+                };
+            }
+            else {
+                toast.error(response.data.error.description[0]);
+            }
+        }).catch(error => toast.error(error));
         onExit();
     }
     render() {
@@ -45,7 +64,7 @@ class AddDispositiveFormContainer extends Component {
         return (
         <div className="demo-card-wide mdl-card mdl-shadow--2dp">
             <div className="mdl-card__title">
-            <h2 className="mdl-card__title-text">Agregar dispositivo</h2>
+            <h2 className="mdl-card__title-text">Add dispositive</h2>
             </div>
             <AddDispositiveForm onSubmit={this.handleSubmit} dispositives={dispositivesTypes} rooms={rooms} onExit={onExit} />
         </div>

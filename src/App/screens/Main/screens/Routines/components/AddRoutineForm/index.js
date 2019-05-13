@@ -5,6 +5,7 @@ import RoutinesService from '../../../../../../../services/RoutinesService';
 import AddRoutineForm from './layout';
 import styles from './styles.module.scss';
 import ConfigureRoutineDispositiveFormContainer from '../ConfigureRoutineDispositiveForm';
+import { toast } from 'react-toastify';
 
 class AddRoutineFormContainer extends Component {
     state = {
@@ -44,7 +45,7 @@ class AddRoutineFormContainer extends Component {
             actions
         }
         debugger;
-        RoutinesService.postRoutine(newData);
+        RoutinesService.postRoutine(newData).then(toast("Routine was added!"));
         onExit();
     }
 
