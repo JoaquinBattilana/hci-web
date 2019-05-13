@@ -4,6 +4,7 @@ import AddDispositiveForm from './components/AddDispositiveForm';
 import ConfigureDispositiveForm from './components/ConfigureDispositiveForm';
 import WithMainView from '../../components/WithMainView';
 import DevicesService from '../../../../../services/DevicesService';
+import { toast } from 'react-toastify';
 
 class Dispositives extends Component {
 
@@ -18,13 +19,21 @@ class Dispositives extends Component {
         this.setState(({isLoading: true}));
         DevicesService.getDevicesTypes()
             .then(response => {
-                this.setState(({dispositivesTypes: response.data.devices}));
-                return DevicesService.getDevices();
+                if(response.ok){
+                    this.setState(({dispositivesTypes: response.data.devices}));
+                    DevicesService.getDevices().then(response => {
+                        if(response.ok){
+                            this.setState(({
+                            dispositives: response.data.devices,
+                            isLoading: false
+                            }))
+                        }
+                    })
+                }
+                else {
+                    toast.error(response.originalError);
+                }
             })
-            .then(response => this.setState(({
-                dispositives: response.data.devices,
-                isLoading: false
-            })));
     }
 
     isToggable = dispositive => {

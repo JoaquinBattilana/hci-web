@@ -4,7 +4,6 @@ import { SubmissionError } from 'redux-form';
 import DevicesService from '../../../../../../../services/DevicesService';
 import RoomsService from '../../../../../../../services/RoomsService';
 import { toast } from 'react-toastify';
-import { isRequired } from '../../../../../../../utils/validate';
 
 class AddDispositiveFormContainer extends Component {
 

@@ -34,6 +34,7 @@ class RoomSelected extends Component {
         const roomId = id;
         RoomsService.getRoom(roomId)
         .then(response => {
+            debugger;
             this.setState(({roomSelected: response.data.room}))
             return RoomsService.getRoomDevices(roomId); })
         .then( response => {

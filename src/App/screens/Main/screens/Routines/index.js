@@ -3,6 +3,7 @@ import WithMainView from '../../components/WithMainView';
 import AddRoutineFormContainer from './components/AddRoutineForm';
 import RoutinesService from '../../../../../services/RoutinesService';
 import Routine from './components/Routine';
+import { toast } from 'react-toastify';
 
 class Routines extends Component {
     state = {
@@ -11,9 +12,13 @@ class Routines extends Component {
 
     componentDidMount = () => {
         RoutinesService.getRoutines().then(response => {
-            this.setState(({
-                routines: response.data.routines
-            }));
+            if(response.ok){
+                this.setState(({
+                    routines: response.data.routines
+                }));
+            } else {
+                toast.error("There was an error connecting to the server.");
+            }
         });
     }
 

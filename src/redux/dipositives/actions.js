@@ -1,6 +1,7 @@
 import dispositives from '../../services/DevicesService';
 
 import { createTypes, completeTypes} from 'redux-recompose';
+import { toast } from 'react-toastify';
 
 export const actions= createTypes(completeTypes([
     "GET_DISPOSITIVES",
@@ -31,7 +32,8 @@ const actionCreators = {
                 payload: response.data.devices
             });
         } else {
-            dispatch({ type:actions.GET_DISPOSITIVE_TYPES_FAIL });
+            dispatch({ type:actions.GET_DISPOSITIVE_TYPES_FAILURE });
+            toast.error("There was an error connecting to the server");
         }
     },
     getDispositives: () => async dispatch => {
@@ -43,7 +45,7 @@ const actionCreators = {
                 payload: response.data.devices
             });
         } else {
-            dispatch({ type: actions.POST_DISPOSITIVE_FAIL});
+            dispatch({ type: actions.POST_DISPOSITIVE_FAILURE});
         }
     },
     postDispositive: (data, roomId) => async dispatch => {
@@ -58,7 +60,7 @@ const actionCreators = {
                     dispatch({type: actions.POST_DISPOSITIVE_ROOM_SUCCESS})
                 }
                 else {
-                    dispatch({type: actions.POST_DISPOSITIVE_ROOM_FAIL})
+                    dispatch({type: actions.POST_DISPOSITIVE_ROOM_FAILURE})
                 }
             }
         }
@@ -83,7 +85,7 @@ const actionCreators = {
             dispatch({ type:actions.DELETE_DISPOSITIVE_SUCCESS});
             dispatch(actionCreators.getDispositives());
         } else {
-            dispatch({ type: actions.DELETE_DISPOSITIVE_FAIL });
+            dispatch({ type: actions.DELETE_DISPOSITIVE_FAILURE });
         }
     }
 }

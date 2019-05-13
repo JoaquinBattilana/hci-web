@@ -7,6 +7,7 @@ import Rooms from './screens/Rooms';
 import Routines from './screens/Routines';
 import NotFound from './screens/NotFound';
 import RoomSelected from './screens/Rooms/screens/RoomSelected';
+import ErrorBoundary from '../../components/ErrorBoundary';
 
 function Main() {
     return (
@@ -16,6 +17,7 @@ function Main() {
         <SideBar />
         <main className="mdl-layout__content">
             <div className={`page-content`}>
+            <ErrorBoundary>
                 <Switch>
                     <Route exact path="/dispositives" component={Dispositives} />
                     <Route exact path="/rooms" component={Rooms} />
@@ -23,6 +25,7 @@ function Main() {
                     <Route path="/rooms/:id" render={(props) => < RoomSelected {...props}/>} />
                     <Route component={NotFound} />
                 </Switch>
+            </ErrorBoundary>
             </div>
         </main>
         </div>
