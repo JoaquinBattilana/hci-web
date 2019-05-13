@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 export const actions= createTypes(completeTypes([
     "GET_DISPOSITIVES",
-    "POST_DISPOSITIVES",
+    "POST_DISPOSITIVE",
     "GET_DISPOSITIVES_TYPES",
     "PUT_DISPOSITIVE",
     "DELETE_DISPOSITIVE",
@@ -20,7 +20,7 @@ const actionCreators = {
         if(response.ok) {
             dispatch({ type: actions.EXECUTE_DEVICE_ACTION_SUCCESS });
         } else {
-            dispatch({ type: actions.EXECUTE_DEVICE_ACTION_FAIL});
+            dispatch({ type: actions.EXECUTE_DEVICE_ACTION_FAILURE});
         }
     },
     getDispositivesTypes: () => async dispatch => {
@@ -65,7 +65,7 @@ const actionCreators = {
             }
         }
         else {
-            dispatch({ type: actions.POST_DISPOSITIVE_FAIL });
+            dispatch({ type: actions.POST_DISPOSITIVE_FAILURE });
         }
     },
     putDispositive: (deviceId, data) => async dispatch => {
@@ -75,7 +75,7 @@ const actionCreators = {
             dispatch({ type: actions.PUT_DISPOSITIVE_SUCCESS });
             dispatch(actionCreators.getDispositives());
         } else {
-            dispatch({ type: actions.PUT_DISPOSITIVE_FAIL})
+            dispatch({ type: actions.PUT_DISPOSITIVE_FAILURE})
         }
     },
     deleteDispositive: deviceId => async dispatch => {

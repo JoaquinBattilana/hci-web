@@ -18,9 +18,9 @@ class Routine extends Component {
         const { routine } = this.props; 
         return(
             <div className={`mdl-data-table__cell--non-numeric ${styles.routine}`}>
-                <i className={`material-icons ${styles.icon}`}>highlight</i>
+                <i className={`material-icons ${styles.icon}`}>loop</i>
                 <div className={styles.name}>{routine.name}</div>
-                <Button handleClick={this.onClickHandler} label="EJECUTAR RUTINA"/>
+                <Button handleClick={this.onClickHandler} label="EXECUTE ROUTINE"/>
             </div>
         );
     }

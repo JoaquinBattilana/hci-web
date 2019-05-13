@@ -46,7 +46,7 @@ class ConfigureRoutineDispositiveFormContainer extends Component {
         return (isLoading ? <h1>LOADING</h1> : (
             <div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
-                    <h2 className="mdl-card__title-text">Configurar dispositivo de rutina</h2>
+                    <h2 className="mdl-card__title-text">Configure routine device</h2>
                 </div>
                 <ConfigureRoutineDispositiveForm
                     executeButtonAction = {this.executeButtonAction}

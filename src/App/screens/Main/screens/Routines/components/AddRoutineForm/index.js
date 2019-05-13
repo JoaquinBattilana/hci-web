@@ -62,12 +62,12 @@ class AddRoutineFormContainer extends Component {
             !currentDispositive ?
             (<div className="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
-                    <h2 className="mdl-card__title-text">Agregar rutina</h2>
+                    <h2 className="mdl-card__title-text">Add routine</h2>
                 </div>
                 <div className={styles.addDispositives}>
-                    <p> Dispositivos agregados:</p>
+                    <p> In routine devices:</p>
                     {addedDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="settings" handleClick={()=>this.setCurrentDispositive(elem)}/>)}
-                    <p> Dispositivos no agregados: </p>
+                    <p> Other devices: </p>
                     {otherDispositives.map( elem => <RoutineDispositive dispositive={elem} icon="add" handleClick={()=>this.addDispositiveToRoutine(elem)} />)}
                 </div>
                 <AddRoutineForm onSubmit={this.handleSubmit} onExit={onExit}/>
