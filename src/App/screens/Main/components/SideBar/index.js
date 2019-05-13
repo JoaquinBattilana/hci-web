@@ -6,7 +6,9 @@ import styles from './styles.module.scss'
 function SideBar() {
     return(
         <div className="mdl-layout__drawer">
-        <img className={styles.img}src={logo} />
+        <NavLink to="/">
+            <img className={styles.img}src={logo} />
+        </NavLink>
         <span className="mdl-layout-title"></span>
             <nav className="mdl-navigation">
                 <NavLink
