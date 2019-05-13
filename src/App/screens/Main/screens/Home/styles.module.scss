@@ -1,0 +1,13 @@
+@import 'src/scss/constants';
+
+.title {
+    text-align: center;
+}
+
+.centerimage {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right:auto;
+}
