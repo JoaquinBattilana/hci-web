@@ -4,6 +4,7 @@ import CustomInput from '../../../../../../components/CustomInput';
 import CustomSelect from '../../../../../../components/CustomSelect';
 import styles from './styles.module.scss';
 import Button from '../../../../../../components/Button';
+import { isRequired } from '../../../../../../../utils/validate';
 
 function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms, onExit }) {
     return(
@@ -13,12 +14,14 @@ function AddDispostiveForm({ handleSubmit, invalid, dispositives, rooms, onExit 
                 label="Dispositive name"
                 type="text"
                 component={CustomInput}
+                validate={[isRequired]}
             />
             <Field
                 name="type"
                 label="Dispositive type"
                 elements={dispositives}
                 component={CustomSelect}
+                validate={[isRequired]}
             />
             <Field
                 name="room"

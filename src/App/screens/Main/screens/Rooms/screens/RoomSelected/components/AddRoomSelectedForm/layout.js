@@ -4,6 +4,7 @@ import CustomInput from '../../../../../../../../components/CustomInput';
 import CustomSelect from '../../../../../../../../components/CustomSelect';
 import styles from './styles.module.scss';
 import Button from '../../../../../../../../components/Button';
+import { isRequired } from '../../../../../../../../../utils/validate';
 
 function AddRoomDispostiveForm({ handleSubmit, invalid, dispositives, onExit }) {
     return(
@@ -13,12 +14,14 @@ function AddRoomDispostiveForm({ handleSubmit, invalid, dispositives, onExit }) 
                 label="Dispositive name"
                 type="text"
                 component={CustomInput}
+                validate={[isRequired]}
             />
             <Field
                 name="type"
                 label="Dispositive type"
                 elements={dispositives}
                 component={CustomSelect}
+                validate={[isRequired]}
             />
             <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
                 <Button type="button" iconType="raised" label={"SALIR"} handleClick={onExit} />
