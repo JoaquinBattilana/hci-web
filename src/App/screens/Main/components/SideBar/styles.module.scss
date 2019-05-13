@@ -1,9 +1,5 @@
 @import 'src/scss/constants';
 
-.sidebar {
-    position: fixed;
-    top: $topbar-height;
-    border: 1px solid black;
-    width: $sidebar-width;
-    height: 100%;
+.img {
+    width: 100%;
 }
