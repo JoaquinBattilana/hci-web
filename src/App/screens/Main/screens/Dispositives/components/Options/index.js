@@ -4,6 +4,7 @@ import CustomInput from '../../../../../../components/CustomInput';
 import CustomSelect from '../../../../../../components/CustomSelect';
 import Button from '../../../../../../components/Button';
 import SliderInput from '../../../../../../components/SliderInput';
+import { isRequired } from '../../../../../../../utils/validate';
 
 class Options extends Component {
     render() {
@@ -40,6 +41,7 @@ class Options extends Component {
                                     name={action.name}
                                     label={param.name}
                                     component={CustomInput}
+                                    validate={[isRequired]}
                                 />
                             );
                         }
@@ -56,6 +58,7 @@ class Options extends Component {
                             label={param.name}
                             elements={wrappedElements}
                             component={CustomSelect}
+                            validate={[isRequired]}
                         />
                     );
                 }

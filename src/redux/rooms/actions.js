@@ -1,19 +1,13 @@
 import rooms from '../../services/RoomsService';
+import { createTypes, completeTypes } from 'redux-recompose';
 
-export const actions = {
-    SELECT_ROOM: "@@ROOMS/SELECT_ROOM",
-    GET_ROOMS: "@@ROOMS/GET_ROOMS",
-    GET_ROOMS_SUCESS: "@@ROOMS/GET_ROOMS_SUCESS",
-    GET_ROOMS_FAIL: "@@ROOMS/GET_ROOMS_FAIL",
-    GET_ROOM_DEVICES_SUCESS: "@@ROOMS/GET_ROOM_DEVICES_SUCESS",
-    GET_ROOM_DEVICES_FAIL: "@@ROOMS/GET_ROOM_DEVICES_FAIL",
-    POST_ROOMS: "@@ROOMS/POST_ROOMS",
-    POST_ROOMS_SUCESS: "@@ROOMS/POST_ROOMS_SUCESS",
-    POST_ROOMS_FAIL: "@@ROOMS/POST_ROOMS_FAIL",
-    POST_ROOM: "@@ROOMS/POST_ROOM",
-    POST_ROOM_SUCESS: "@@ROOMS/POST_ROOM_SUCESS",
-    POST_ROOM_FAIL: "@@ROOMS/POST_ROOM_FAIL"
-};
+export const actions = createTypes(completeTypes([
+    "SELECT_ROOM",
+    "GET_ROOMS",
+    "GET_ROOM_DEVICES",
+    "POST_ROOMS",
+    "POST_ROOM"
+]),"@@ROOMS");
 
 const actionsCreator = {
     selectRoom: room => async dispatch => {
@@ -24,7 +18,7 @@ const actionsCreator = {
         const response = await rooms.getRoomDevices(room.id);
         if (response.ok) {
             dispatch({
-                type: actions.GET_ROOM_DEVICES_SUCESS,
+                type: actions.GET_ROOM_DEVICES_SUCCESS,
                 payload: response.data.devices
             });
         } else {
@@ -38,7 +32,7 @@ const actionsCreator = {
         const response = await rooms.getRooms();
         if (response.ok) {
             dispatch({
-                type: actions.GET_ROOMS_SUCESS,
+                type: actions.GET_ROOMS_SUCCESS,
                 payload: response.data.rooms
             });
         } else
@@ -48,7 +42,7 @@ const actionsCreator = {
         dispatch({ type: actions.POST_ROOM });
         const response = await rooms.postRoom(data);
         if(response.ok) {
-            dispatch({ type: actions.POST_ROOM_SUCESS});
+            dispatch({ type: actions.POST_ROOM_SUCCESS});
         } else {
             dispatch({ type: actions.POST_ROOM_FAIL });
         }

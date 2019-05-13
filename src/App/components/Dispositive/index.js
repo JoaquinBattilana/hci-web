@@ -4,6 +4,7 @@ import SwitchButton from '../SwitchButton';
 import Button from '../Button';
 import DevicesService from '../../../services/DevicesService';
 import { DEVICES_ICON_ID } from '../../../constants/devices';
+import { toast } from 'react-toastify';
 
 class Dispositive extends Component {
     componentDidMount = () => {
@@ -17,7 +18,7 @@ class Dispositive extends Component {
     
     onDeleteClickHandler = () => {
         const { dispositive } = this.props
-        DevicesService.deleteDevice(dispositive.id);
+        DevicesService.deleteDevice(dispositive.id).then(toast("Dispositive was deleted!"));
     }
 
     executeOn = () => {

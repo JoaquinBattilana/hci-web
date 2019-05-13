@@ -20,7 +20,7 @@ function reducer(state=initialState, action) {
                 ...state,
                 isLoading: true,
             });
-        case actions.GET_ROOMS_SUCESS:
+        case actions.GET_ROOMS_SUCCESS:
             return({
                 ...state,
                 isLoading: false,  
@@ -33,7 +33,7 @@ function reducer(state=initialState, action) {
                 isLoading: false,
                 hasError: true
             });
-        case actions.GET_ROOM_DEVICES_SUCESS:
+        case actions.GET_ROOM_DEVICES_SUCCESS:
             return({
                 ...state,
                 isLoading: false,

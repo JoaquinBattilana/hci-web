@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
 import Button from '../../../../../../components/Button';
 import styles from './styles.module.scss'
+import { isRequired } from '../../../../../../../utils/validate';
 
 function AddRoutineForm({ handleSubmit, onExit, invalid }) {
     return(
@@ -12,6 +13,7 @@ function AddRoutineForm({ handleSubmit, onExit, invalid }) {
                 label="name"
                 type="text"
                 component={CustomInput}
+                validate={[isRequired]}
             />
             <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
                 <Button type="button" iconType="raised" label={"CANCEL"} handleClick={onExit} />

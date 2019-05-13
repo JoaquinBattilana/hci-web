@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../../../../../../components/CustomInput';
 import Button from '../../../../../../components/Button';
 import styles from './styles.module.scss';
+import { isRequired } from '../../../../../../../utils/validate';
 
 function AddRoomForm({ handleSubmit, invalid, onExit }) {
     return(
@@ -12,6 +13,7 @@ function AddRoomForm({ handleSubmit, invalid, onExit }) {
                 label="Room name"
                 type="text"
                 component={CustomInput}
+                validate={isRequired}
             />
             <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
                 <Button type="button" iconType="raised" label={"SALIR"} handleClick={onExit} />

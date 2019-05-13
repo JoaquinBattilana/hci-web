@@ -4,6 +4,7 @@ import CustomInput from '../../../../../../components/CustomInput';
 import Button from '../../../../../../components/Button';
 import styles from './styles.module.scss';
 import Options from '../Options';
+import { isRequired } from '../../../../../../../utils/validate';
 
 function ConfigureDispositiveForm({ dispositiveId, handleSubmit, actions, onExit, invalid, executeButtonAction }) {
     return(
@@ -13,6 +14,7 @@ function ConfigureDispositiveForm({ dispositiveId, handleSubmit, actions, onExit
                 label="name"
                 type="text"
                 component={CustomInput}
+                validate={[isRequired]}
             />
             <Options actions={actions}  executeButtonAction={executeButtonAction} dispositiveId={dispositiveId} />
             <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
