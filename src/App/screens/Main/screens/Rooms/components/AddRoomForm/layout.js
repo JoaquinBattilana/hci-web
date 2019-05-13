@@ -16,8 +16,8 @@ function AddRoomForm({ handleSubmit, invalid, onExit }) {
                 validate={isRequired}
             />
             <div className={`mdl-card__actions mdl-card--border ${styles.buttons}`}>
-                <Button type="button" iconType="raised" label={"SALIR"} handleClick={onExit} />
-                <Button type="submit" iconType="raised" disable={invalid} label={"ADD"} />
+                <Button type="button" icon="cancel" iconType="fab" disable={invalid}  handleClick={onExit}/>
+                <Button type="submit" icon="check" iconType="fab" disable={invalid} />
             </div>
         </form>
     );
