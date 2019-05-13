@@ -44,8 +44,14 @@ class AddRoutineFormContainer extends Component {
             name: data.name,
             actions
         }
-        debugger;
-        RoutinesService.postRoutine(newData).then(toast("Routine was added!"));
+        RoutinesService.postRoutine(newData).then(response => {
+            if(response.ok){
+                toast("Routine was added!");
+            }
+            else {
+                toast.error(response.data.error.description[0]);
+            }
+        });
         onExit();
     }
 

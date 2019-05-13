@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ConfigureRoutineDispositiveForm from './layout';
 import DevicesService from '../../../../../../../services/DevicesService';
+import { toast } from 'react-toastify';
 
 class ConfigureRoutineDispositiveFormContainer extends Component {
 
@@ -38,6 +39,7 @@ class ConfigureRoutineDispositiveFormContainer extends Component {
             meta: null
         }));
         newData.map(elem => addAction(elem));
+        toast("Data was saved in routine");
         this.onExit();
     }
     render() {
