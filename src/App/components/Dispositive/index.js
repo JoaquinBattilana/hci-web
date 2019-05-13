@@ -18,7 +18,7 @@ class Dispositive extends Component {
     
     onDeleteClickHandler = () => {
         const { dispositive } = this.props
-        DevicesService.deleteDevice(dispositive.id).then(toast("Dispositive was deleted!"));
+        DevicesService.deleteDevice(dispositive.id).then(toast("Device was deleted"));
     }
 
     executeOn = () => {

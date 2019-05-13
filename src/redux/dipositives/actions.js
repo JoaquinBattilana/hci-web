@@ -73,6 +73,7 @@ const actionCreators = {
         const response = await dispositives.putDevice(deviceId, data);
         if (response.ok) {
             dispatch({ type: actions.PUT_DISPOSITIVE_SUCCESS });
+            toast("Device data was saved")
             dispatch(actionCreators.getDispositives());
         } else {
             dispatch({ type: actions.PUT_DISPOSITIVE_FAILURE})

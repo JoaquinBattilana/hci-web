@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import Button from '../../../../../../components/Button';
 import RoutinesService from '../../../../../../../services/RoutinesService';
+import { toast } from 'react-toastify';
 
 class Routine extends Component {
 
@@ -11,7 +12,14 @@ class Routine extends Component {
 
     onClickHandler = () => {
         const { routine } = this.props;
-        RoutinesService.executeRoutine(routine.id);
+        RoutinesService.executeRoutine(routine.id).then( response => {
+            if(response.ok){
+                toast("Routin was executed");
+            }
+            else {
+                toast.error("There was an error executing the routine");
+            }
+        });
     }
 
     render() {
